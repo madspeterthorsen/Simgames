@@ -1,0 +1,210 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <section class="about-header">
+    <h1 class="about-title">OM SIMGAMES</h1>
+    <p class="about-subtitle">teamet bag indoor golf & simgames-universet</p>
+  </section>
+
+  <section class="presentation-section">
+    <div class="info-box about-box">
+      <h2>Simgolf & Simgames – hvem står bag?</h2>
+      <p>
+        Simgolf er virksomheden bag centrene, simulatorerne og værtskabet – og Simgames er vores legende spilunivers bygget ovenpå det. Sammen skaber vi et sted, hvor du både kan træne seriøs golf og kaste dig ud i minigames, konkurrencer og
+        pre-parties med crewet.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Simgolf – virksomheden bag</h3>
+          <p>
+            Simgolf driver moderne indendørs golfcentre med fokus på kvalitet, teknologi og gode rammer. Med Trackman-simulatorer, gennemtænkte faciliteter og et værtskab, der føles afslappet og imødekommende, er vi base for både nye spillere, øvede
+            og hardcore golfere, der vil spille året rundt.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3>Hvad er Simgames?</h3>
+          <p>
+            Simgames er vores samling af minigames på simulatoren – et space-inspireret univers, hvor golf bliver til spil, challenges og arcade vibes. I spiller på storskærm, rammer targets, jagter high scores og kan skifte mellem forskellige
+            gamemodes alt efter, hvor meget konkurrence eller kaos I er til.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3>Hvorfor vi har skabt Simgames</h3>
+          <p>
+            Vi ville gøre simulator-golf endnu mere tilgængeligt – også for dem, der aldrig har rørt en golfkølle før. Simgames sænker barrieren og gør det nemt at være med, uanset niveau. Det handler om grin, spænding og fælles oplevelser, ikke om
+            handicap og perfektion.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3>Til venneaftener, events & pre-parties</h3>
+          <p>
+            Simgames er lavet til alt fra vennegrupper og studiehold til firmaevents og julefrokoster. I kan kombinere minigames med drikkepakker, turneringsformat eller afslappet free play – og bruge Simgolf-centret som ramme for både spil, drinks
+            og videre tur i byen.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-bottom">
+        <h3>Kort sagt</h3>
+        <p>
+          Simgolf er virksomheden og rammen – Simgames er universet, hvor spil, minigames og social stemning folder sig ud. Sammen gør vi indoor golf til en oplevelse, der føles lige så meget som gaming og pre-party, som den føles som klassisk golf.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  .about-header {
+    text-align: center;
+    margin-top: 11.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-title {
+    font-size: 3.2rem;
+    letter-spacing: 0.1em;
+    margin: 0;
+    color: white;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  }
+
+  .about-subtitle {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    opacity: 0.85;
+    color: white;
+  }
+
+  .presentation-section {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 4rem;
+  }
+
+  .info-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 2px solid white;
+    box-shadow: 0 0 50px #e803b2;
+    max-width: 900px;
+    width: 100%;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .about-box h2 {
+    margin-top: 0;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .about-box > p {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-card {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 1.25rem;
+    background: rgba(0, 0, 0, 0.6);
+    animation: floaty 4s ease-in-out infinite;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      filter 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  @keyframes floaty {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    :global(body) {
+    }
+
+    .presentation-section {
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+    }
+
+    .info-box {
+      padding: 1.5rem 1.25rem;
+      box-shadow: 0 0 30px #e803b2;
+    }
+
+    .about-title {
+      font-size: 2.4rem;
+    }
+
+    .about-subtitle {
+      font-size: 1rem;
+    }
+
+    .about-box h2 {
+      font-size: 1.4rem;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .about-card p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .presentation-section {
+      padding: 1.25rem 0.75rem;
+    }
+
+    .info-box {
+      padding: 1.25rem 1rem;
+    }
+
+    .about-title {
+      font-size: 2rem;
+    }
+
+    .about-subtitle {
+      font-size: 0.9rem;
+    }
+  }
+</style>

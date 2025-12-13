@@ -1,0 +1,345 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <section class="faq-header">
+    <h1 class="faq-title">FAQ</h1>
+    <p class="faq-subtitle">alt du skal vide om Simgames</p>
+  </section>
+
+  <section class="presentation-section">
+    <div class="info-box">
+      <h2>Ofte stillede spørgsmål</h2>
+
+      <div class="info-item">
+        <div class="info-header">
+          <span>Hvad er Simgames?</span>
+          <button class="toggle-btn">+</button>
+        </div>
+        <div class="info-content">
+          <p>
+            Simgames er vores samling af minigames på golfsimulatoren – tænkt som et socialt univers, hvor I kan battle i alt fra target games og challenges til party-spil, der minder mere om arcade og gaming end klassisk golf. Det er skabt til
+            venner, studiegrupper og firmaer, der vil have en anderledes aften med spil, drinks og god stemning.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-header">
+          <span>Skal man kunne spille golf i forvejen?</span>
+          <button class="toggle-btn">+</button>
+        </div>
+        <div class="info-content">
+          <p>
+            Nej! Simgames er designet til både begyndere og øvede. Systemet hjælper jer med at komme i gang, og personalet kan altid give en hurtig intro til slag, køller og de forskellige spil. Det vigtigste er, at I har lyst til at prøve noget nyt
+            og have det sjovt.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-header">
+          <span>Hvor mange kan vi være pr. simulator?</span>
+          <button class="toggle-btn">+</button>
+        </div>
+        <div class="info-content">
+          <p>
+            Som udgangspunkt anbefaler vi 4–6 personer pr. simulator for den bedste oplevelse, så alle når til at spille med. Er I flere, kan I enten booke flere simulatorer eller lave rotation, hvor nogle spiller og andre hænger ud med drinks imens.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-header">
+          <span>Hvordan fungerer pakkerne med alkohol og Simgames?</span>
+          <button class="toggle-btn">+</button>
+        </div>
+        <div class="info-content">
+          <p>
+            Vores Simgames-pakker kombinerer spil på simulatoren med drikkepakker, så I får en samlet oplevelse. I vælger en pakke ud fra antal personer og tidsrum, og så sørger vi for, at baren og simulatoren spiller sammen – så I kan fokusere på at
+            vinde minigames og ikke på det praktiske. Kontakt os, hvis I har særlige ønsker eller vil skræddersy en løsning.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-header">
+          <span>Kan vi tilpasse gamemodes til vores event?</span>
+          <button class="toggle-btn">+</button>
+        </div>
+        <div class="info-content">
+          <p>
+            Ja, vi kan sammensætte et program, der passer til jer – fx turneringsformat til firmaevents, mere casual party-games til fødselsdag eller en blanding af klassisk golf og Simgames. Skriv til os med info om antal personer, dato og stemning,
+            så finder vi den rette opsætning.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-header">
+          <span>Hvordan booker vi Simgames?</span>
+          <button class="toggle-btn">+</button>
+        </div>
+        <div class="info-content">
+          <p>
+            Booking foregår via vores bookingsystem på hjemmesiden. Vælg dato, tidsrum og antal simulatorer – og skriv gerne i kommentarfeltet, at I vil spille Simgames, så vi kan sætte det hele op til jer. Har I spørgsmål eller særlige ønsker, kan I
+            altid kontakte os inden booking.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-header">
+          <span>Hvad skal vi have med – og hvad sørger I for?</span>
+          <button class="toggle-btn">+</button>
+        </div>
+        <div class="info-content">
+          <p>I skal bare møde op i behageligt tøj og sko, der er gode at svinge i. Køller, bolde og teknikken står vi for. Drikkevarer købes i baren, og hvis I har specielle behov eller ønsker til setup, kan vi aftale det på forhånd.</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-header">
+          <span>Kan vi kombinere Simgames med et større event eller pre-party?</span>
+          <button class="toggle-btn">+</button>
+        </div>
+        <div class="info-content">
+          <p>
+            Ja, Simgames er oplagt som pre-party, firmaevent eller en del af et større arrangement i The Clubhouse. Vi kan hjælpe med at lægge et flow, så I fx starter med Simgames på simulatoren og fortsætter med drinks, musik og hygge bagefter.
+            Skriv til os, så tager vi en snak om mulighederne.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleButtons = document.querySelectorAll(".toggle-btn");
+
+      toggleButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
+          const infoItem = button.closest(".info-item");
+          const content = infoItem.querySelector(".info-content");
+          const isActive = infoItem.classList.contains("active");
+
+          // Luk alle andre bokse
+          document.querySelectorAll(".info-item").forEach((item) => {
+            if (item !== infoItem) {
+              item.classList.remove("active");
+              item.querySelector(".toggle-btn").textContent = "+";
+            }
+          });
+
+          // Toggle aktiv status
+          if (isActive) {
+            content.classList.add("closing");
+            infoItem.classList.remove("active");
+            button.textContent = "+";
+
+            setTimeout(() => {
+              content.classList.remove("closing");
+            }, 300);
+          } else {
+            infoItem.classList.add("active");
+            button.textContent = "−";
+          }
+        });
+      });
+    });
+  </script>
+</Layout>
+
+<style>
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+
+
+  .faq-header {
+    text-align: center;
+    margin-top: 11.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .faq-title {
+    font-size: 3.2rem;
+    letter-spacing: 0.1em;
+    margin: 0;
+    color: white;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  }
+
+  .faq-subtitle {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    opacity: 0.85;
+    color: white;
+  }
+
+  .presentation-section {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 4rem;
+  }
+
+  .info-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 2px solid white;
+    box-shadow: 0 0 50px #e803b2;
+    max-width: 900px;
+    width: 100%;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    animation: floaty 4s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  .info-box h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .info-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 1rem 0;
+  }
+
+  .info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    gap: 1rem;
+  }
+
+  .toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+
+  .info-content {
+    margin-top: 0.5rem;
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .info-item.active .info-content {
+    display: block;
+  }
+
+  .info-content.closing {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .info-item.active .toggle-btn {
+    transform: rotate(45deg);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes floaty {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    :global(body) {
+    }
+
+    .presentation-section {
+      padding: 1.5rem 1rem;
+      margin-top: 2rem;
+    }
+
+    .info-box {
+      padding: 1.5rem 1.25rem;
+      box-shadow: 0 0 30px #e803b2;
+    }
+
+    .faq-title {
+      font-size: 2.4rem;
+    }
+
+    .faq-subtitle {
+      font-size: 1rem;
+    }
+
+    .info-box h2 {
+      font-size: 1.3rem;
+    }
+
+    .info-header {
+      gap: 0.75rem;
+    }
+
+    .info-item {
+      padding: 0.75rem 0;
+    }
+
+    .info-content p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .presentation-section {
+      padding: 1.25rem 0.75rem;
+    }
+
+    .info-box {
+      padding: 1.25rem 1rem;
+    }
+
+    .faq-title {
+      font-size: 2rem;
+    }
+
+    .faq-subtitle {
+      font-size: 0.9rem;
+    }
+  }
+</style>

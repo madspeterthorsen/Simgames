@@ -1,0 +1,245 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Pakker | Simgames">
+  <main class="prices-page">
+    <!-- HERO -->
+    <section class="packages-hero">
+      <h1 class="packages-title">PAKKER</h1>
+      <p class="packages-subtitle">
+        Book en bås for kun <span>300 DKK</span> – eller tilkøb en af vores pakkeløsninger
+      </p>
+    </section>
+
+    <!-- SPILLE-PAKKER -->
+    <section class="packages-section">
+      <h2 class="packages-heading">VORES SPILLE-PAKKER</h2>
+      <div class="packages-grid">
+        <div class="package-card">
+          <h3 class="package-title">For The Beginners</h3>
+          <ul class="package-list">
+            <li>2 timers simgames</li>
+            <li>8 øl til boksen</li>
+            <li>Anbefalet til 4 personer</li>
+          </ul>
+          <div class="package-price">799 DKK</div>
+        </div>
+
+        <div class="package-card">
+          <h3 class="package-title">For The All Nighters</h3>
+          <ul class="package-list">
+            <li>3 timers simgames</li>
+            <li>2 kander øl</li>
+            <li>1 pose chips</li>
+            <li>Anbefalet til 4 personer</li>
+          </ul>
+          <div class="package-price">1199 DKK</div>
+        </div>
+
+        <div class="package-card">
+          <h3 class="package-title">For All Inclusive</h3>
+          <ul class="package-list">
+            <li>3 timers simgames</li>
+            <li>2 kander øl</li>
+            <li>2 poser chips</li>
+            <li>4 burgere eller nachos</li>
+            <li>Anbefalet til 4 personer</li>
+          </ul>
+          <div class="package-price">1599 DKK</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUCKET-PAKKER -->
+    <section class="packages-section">
+      <h2 class="packages-heading">VORES BUCKET-PAKKER</h2>
+      <div class="packages-grid">
+        <div class="package-card">
+          <h3 class="package-title">The Perfect Pitch</h3>
+          <ul class="package-list">
+            <li>1 flaske (vodka/gin/rum)</li>
+            <li>6 energidrikke/4 sodavand</li>
+            <li>1 bowle med is + glas</li>
+          </ul>
+          <div class="package-price">999 DKK</div>
+        </div>
+
+        <div class="package-card">
+          <h3 class="package-title">The Long Drive</h3>
+          <ul class="package-list">
+            <li>2 flasker (vodka/gin/rum)</li>
+            <li>12 energidrikke/8 sodavand</li>
+            <li>1 bowle med is + glas</li>
+          </ul>
+          <div class="package-price">1599 DKK</div>
+        </div>
+
+        <div class="package-card">
+          <h3 class="package-title">The Hole In One</h3>
+          <ul class="package-list">
+            <li>2 flasker (vodka/gin/rum)</li>
+            <li>12 energidrikke/8 sodavand</li>
+            <li>1 bowle med is + glas</li>
+            <li>2 poser chips</li>
+            <li>2 kander øl</li>
+          </ul>
+          <div class="package-price">1999 DKK</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    .packages-hero {
+      max-width: 720px;
+      margin: 0 auto 3rem;
+    }
+
+    .packages-title {
+      font-size: clamp(2.6rem, 5vw, 3.6rem);
+      letter-spacing: none;
+      text-transform: uppercase;
+      margin: 0 0 0.5rem;
+    }
+
+    .packages-subtitle {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .packages-subtitle span {
+      font-weight: 600;
+    }
+
+    .packages-section {
+      width: 100%;
+      max-width: 1000px;
+      margin: 3.5rem auto 0;
+      text-align: center;
+    }
+
+    .packages-heading {
+      font-size: 1.2rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin: 0 0 1.75rem;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 3.5rem;
+    }
+
+    .package-card {
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+      padding: 1.7rem 1.5rem 1.4rem;
+      border: 2px solid white;
+      box-shadow: 0 0 50px rgba(232, 3, 178, 0.6);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+      transform: translateY(0);
+      filter: drop-shadow(0 0 12px rgba(120, 0, 255, 0.4));
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease,
+        opacity 0.3s ease;
+      animation: floaty 4s ease-in-out infinite;
+    }
+    .package-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px rgba(232, 3, 178, 0.45);
+      filter: drop-shadow(0 0 14px rgba(120, 0, 255, 0.45));
+    }
+
+    .package-title {
+      font-size: 1.1rem;
+      margin: 0 0 1.2rem;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .package-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .package-list li {
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .package-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 0.9rem;
+    }
+
+    .package-price {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #ff4ad9;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    @media (max-width: 900px) {
+      .prices-page {
+        padding-top: 5rem;
+      }
+
+      .packages-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .packages-section {
+        margin-top: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .prices-page {
+        padding: 4.5rem 1rem 3rem;
+      }
+
+      .packages-title {
+        font-size: 2.2rem;
+        letter-spacing: 0.18em;
+      }
+    }
+
+    @keyframes floaty {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+  </style>
+</Layout>

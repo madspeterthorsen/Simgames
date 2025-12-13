@@ -1,0 +1,166 @@
+---
+import Layout from "../layouts/Layout.astro";
+import phone from "../assets/phone.png";
+import mail from "../assets/mail.png";
+---
+
+<Layout>
+  <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet" />
+
+  <style>
+    .kontakt-wrapper {
+      min-height: 100vh;
+      padding: 5rem 1rem 10rem;
+      text-align: center;
+      margin-top: 5rem;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 4rem;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact-section {
+      max-width: 520px;
+      margin: 0 auto 8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .contact-row img {
+      width: 40px;
+    }
+
+    .contact-text {
+      font-size: 1.4rem;
+    }
+
+    /* ================= LOCATIONS ================= */
+
+    .lokationer-title {
+      font-size: 2rem;
+      margin: 8rem 0 4rem;
+      letter-spacing: 4px;
+    }
+
+    .locations {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5rem;
+    }
+
+    .location-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .location-card h3 {
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.3rem;
+    }
+
+    .location-card p {
+      font-size: 1.1rem;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 200px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: black;
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .locations {
+        grid-template-columns: 1fr;
+      }
+
+      .location-card {
+        grid-template-rows: auto 200px;
+      }
+    }
+  </style>
+
+  <div class="kontakt-wrapper">
+    <h1>KONTAKT</h1>
+
+    <p class="subtitle">
+      Har du spørgsmål eller ønsker du at booke en tid?<br />
+      Vi er klar til at hjælpe dig!
+    </p>
+
+    <div class="contact-section">
+      <div class="contact-row">
+        <img src={phone.src} alt="Telefon" />
+        <div class="contact-text">+45 71 96 38 80</div>
+      </div>
+
+      <div class="contact-row">
+        <img src={mail.src} alt="Mail" />
+        <div class="contact-text">info@simgames.dk</div>
+      </div>
+    </div>
+
+    <h2 class="lokationer-title">LOKATIONER</h2>
+
+    <div class="locations">
+      <div class="location-card">
+        <div>
+          <h3>KØBENHAVN</h3>
+          <p>Hvidkildevej 64, 2400 København NV</p>
+        </div>
+        <div class="map-frame">
+          <iframe loading="lazy" src="https://www.google.com/maps?q=Hvidkildevej+64,+2400+K%C3%B8benhavn+NV&output=embed"></iframe>
+        </div>
+      </div>
+
+      <div class="location-card">
+        <div>
+          <h3>ROSKILDE</h3>
+          <p>RO's Have 12, 4000 Roskilde</p>
+        </div>
+        <div class="map-frame">
+          <iframe loading="lazy" src="https://www.google.com/maps?q=RO%27s+Have+12,+4000+Roskilde&output=embed"></iframe>
+        </div>
+      </div>
+
+      <div class="location-card">
+        <div>
+          <h3>AMAGER</h3>
+          <p>Amagerlandevej 233, 2770 Kastrup</p>
+        </div>
+        <div class="map-frame">
+          <iframe loading="lazy" src="https://www.google.com/maps?q=Amagerlandevej+233,+2770+Kastrup&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
