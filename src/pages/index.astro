@@ -25,6 +25,7 @@ const games: Game[] = await res.json();
       --accent: #00eaff;
     }
 
+<<<<<<< HEAD
     .hero {
       max-width: 900px;
       margin: 0 auto;
@@ -32,6 +33,22 @@ const games: Game[] = await res.json();
       padding-bottom: 5rem;
       text-align: center;
     }
+=======
+p {
+  text-align: left;
+}
+
+.hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 12rem;
+  padding-bottom: 5rem;
+  text-align: center;
+}
+    
+.hero-text h1 { margin: 0 0 .5rem 0; font-size: 2.6rem; letter-spacing: 2px; }
+.hero-text h2 { margin: 0; font-size: 1.25rem; opacity: .9; }
+>>>>>>> ca1339c (index rettelser)
 
     .hero-text h1 {
       margin: 0 0 0.5rem 0;
@@ -44,6 +61,7 @@ const games: Game[] = await res.json();
       opacity: 0.9;
     }
 
+<<<<<<< HEAD
     .hero-gif-wrapper {
       width: 100%;
       max-width: 900px;
@@ -53,6 +71,15 @@ const games: Game[] = await res.json();
       box-shadow: 0 0 40px rgba(255, 255, 255, 0.35);
       background: transparent;
     }
+=======
+.section-title {
+  margin-top: 6.5rem;
+  margin-bottom: 0.4rem;
+  text-align: center;
+  font-size: 1.7rem;
+  letter-spacing: 2px;
+}
+>>>>>>> ca1339c (index rettelser)
 
     .hero-gif {
       width: 100%;
@@ -64,6 +91,7 @@ const games: Game[] = await res.json();
       background: transparent;
     }
 
+<<<<<<< HEAD
     .section-title {
       margin-top: 6.5rem;
       margin-bottom: 1.2rem;
@@ -71,6 +99,23 @@ const games: Game[] = await res.json();
       font-size: 1.7rem;
       letter-spacing: 2px;
     }
+=======
+.carousel-section {
+  max-width: 1040px;
+  margin: 0 auto 3.5rem;
+  padding: 10px;
+}
+
+.carousel-window {
+  overflow: hidden;
+  padding: 30px 0px;
+}
+
+.carousel-track { display:flex; gap:20px; transition: transform .35s ease; width: max-content; margin:0 auto; }
+.card { width:160px; height:220px; border-radius:15px; overflow:hidden; flex-shrink:0; cursor:pointer; background: rgba(0,0,0,0.04); }
+.card img { width:100%; height:100%; object-fit:cover; display:block; }
+.card:hover { transform: translateY(-8px) scale(1.05); transition: transform .22s ease; }
+>>>>>>> ca1339c (index rettelser)
 
     .concept-section {
       max-width: 900px;
@@ -139,6 +184,7 @@ const games: Game[] = await res.json();
       transform: scale(1.12);
     }
 
+<<<<<<< HEAD
     /* PLAYER CAROUSEL — STABLE, ONE SLIDE AT A TIME */
     /* PLAYER CAROUSEL BOX – MATCH KONCEPT-STILEN */
     .player-carousel {
@@ -172,33 +218,64 @@ const games: Game[] = await res.json();
     .player-arrow img:hover {
       transform: scale(1.08);
     }
+=======
+.player-carousel {
+  max-width: 1100px;
+  margin: 4rem auto 10rem;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 0;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 3px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.15);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  text-align: left;
+}
 
-    .player-slide-wrapper {
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-      border-radius: 8px;
-      background: transparent;
-    }
+.player-arrow { background:none; border:none; cursor:pointer; z-index:20; padding:0; }
+.player-arrow img { width:64px; height:64px; transition: transform .18s ease; display:block; }
+.player-arrow img:hover { transform: scale(1.08); }
+>>>>>>> ca1339c (index rettelser)
 
+.player-slide-wrapper {
+  width: 100%;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+<<<<<<< HEAD
     .player-track {
       display: flex;
       transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
       will-change: transform;
       width: 100%;
     }
+=======
+.player-track {
+  display: flex;
+  width: 100%;
+}
+>>>>>>> ca1339c (index rettelser)
 
-    .player-slide {
-      flex: 0 0 100%;
-      max-width: 100%;
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 2rem;
-      align-items: center;
-      padding: 1.2rem 1.6rem;
-      min-height: 420px;
-    }
+.player-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  align-items: center;
+}
 
+<<<<<<< HEAD
     .player-card-img {
       width: 100%;
       height: 250px;
@@ -253,6 +330,44 @@ const games: Game[] = await res.json();
       display: flex;
       flex-direction: column;
     }
+=======
+.player-card-img {
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background:#00eaff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.player-card-img img { width:100%; height:100%; object-fit:contain; display:block; }
+.player-card-label { position:absolute; bottom:10px; left:14px; font-size:1.05rem; }
+
+.player-card-text h3 { margin:0 0 1rem 0; font-size:1.9rem; line-height:1.12; }
+.player-card-text ul { list-style: none; padding:0; margin:0; font-size:1.05rem; line-height:1.6; }
+
+.book-btn {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1.75rem;
+}
+
+.book-btn img {
+  width: 180px;
+  height: auto;
+  cursor: pointer;
+  transition: transform .25s ease;
+  image-rendering: pixelated;
+}
+
+.book-btn img:hover {
+  content: url('/bookhover.png');
+  transform: scale(1.02);
+}
+>>>>>>> ca1339c (index rettelser)
 
     .koncept-btn {
       margin-top: 1rem;
@@ -260,6 +375,7 @@ const games: Game[] = await res.json();
       margin-right: 145px;
     }
 
+<<<<<<< HEAD
     .koncept-btn img {
       width: 180px;
       height: auto;
@@ -308,6 +424,41 @@ const games: Game[] = await res.json();
       }
       .section-title {
         margin-top: 3.5rem;
+=======
+.koncept-btn {
+  margin-top: 1.75rem;
+  align-self: flex-end;
+  margin-right: 145px;
+}
+
+.koncept-btn img {
+  width: 180px;
+  height: auto;
+  cursor: pointer;
+  transition: transform .25s ease;
+  image-rendering: pixelated;
+}
+
+.koncept-btn img:hover {
+  content: url('/koncepthover.png');
+  transform: scale(1.02);
+}
+
+.cta-wrap { text-align:center; margin-top:2.5rem; }
+.cta-button { padding:.8rem 2rem; border-radius:999px; border:2px solid var(--accent); background:none; color:var(--accent); cursor:pointer; }
+.footer { margin-top:4rem; height:80px; background:url('/footer.png'); background-size:cover; }
+
+@media (max-width: 820px) {
+      .player-slide {
+        grid-template-columns: 1fr;
+        padding: 1.2rem;
+      }
+      .player-card-img { height: 260px; }
+      .hero { padding-top: 8rem; }
+      .section-title { margin-top: 3.5rem; }
+      p {
+        text-align: left;
+>>>>>>> ca1339c (index rettelser)
       }
     }
 
@@ -323,10 +474,19 @@ const games: Game[] = await res.json();
         padding-right: 1rem;
       }
 
+<<<<<<< HEAD
       .hero-text h1 {
         font-size: 2rem;
         letter-spacing: 1px;
       }
+=======
+.hero {
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+>>>>>>> ca1339c (index rettelser)
 
       .hero-text h2 {
         font-size: 1rem;
@@ -343,6 +503,7 @@ const games: Game[] = await res.json();
         letter-spacing: 1px;
       }
 
+<<<<<<< HEAD
       /* KONCEPT */
       .concept-section {
         grid-template-columns: 1fr;
@@ -354,25 +515,52 @@ const games: Game[] = await res.json();
         align-items: center;
         text-align: left;
       }
+=======
+.section-title {
+  margin-top: 3rem;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.concept-section {
+  grid-template-columns: 1fr;
+
+  padding: 0 1rem;
+}
+>>>>>>> ca1339c (index rettelser)
 
       .koncept-btn {
         align-self: center;
         margin-right: 0;
       }
 
+<<<<<<< HEAD
       .koncept-btn img {
         width: 140px;
       }
+=======
+.koncept-btn {
+  align-self: center;
+  margin-top: 1.75rem;
+  margin-right: 0;
+}
+>>>>>>> ca1339c (index rettelser)
 
       /* GAMES CAROUSEL */
       .carousel-section {
         padding: 0 0.5rem;
       }
 
+<<<<<<< HEAD
       .card {
         width: 140px;
         height: 190px;
       }
+=======
+.carousel-section {
+  padding: 0 0.5rem;
+}
+>>>>>>> ca1339c (index rettelser)
 
       .arrow-btn img {
         width: 56px;
@@ -386,10 +574,18 @@ const games: Game[] = await res.json();
         gap: 1rem;
       }
 
+<<<<<<< HEAD
       .player-arrow img {
         width: 48px;
         height: 48px;
       }
+=======
+.player-carousel {
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  gap: 1rem;
+}
+>>>>>>> ca1339c (index rettelser)
 
       .player-slide {
         grid-template-columns: 1fr;
@@ -407,6 +603,7 @@ const games: Game[] = await res.json();
         text-align: center;
       }
 
+<<<<<<< HEAD
       .player-card-text ul {
         font-size: 0.95rem;
         text-align: center;
@@ -426,6 +623,31 @@ const games: Game[] = await res.json();
 
   <!-- HERO -->
   <section class="hero">
+=======
+.player-card-text h3 {
+  font-size: 1.4rem;
+  text-align: left;
+}
+
+.player-card-text ul {
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.book-btn {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.book-btn img {
+  width: 150px;
+}
+}
+</style>
+
+<section class="hero">
+>>>>>>> ca1339c (index rettelser)
     <div class="hero-text">
       <h1>THE CLUBHOUSE</h1>
       <h2>Simulatorgolf. Challenges. Vibes. Fællesskab.</h2>
@@ -435,6 +657,7 @@ const games: Game[] = await res.json();
       <video class="hero-gif" src="/hero.mp4" autoplay muted loop playsinline></video>
     </div>
 
+<<<<<<< HEAD
     <!-- KONCEPT -->
     <h2 class="section-title">KONCEPT</h2>
 
@@ -469,9 +692,73 @@ const games: Game[] = await res.json();
               </a>
             ))
           }
+=======
+
+<h2 class="section-title">KONCEPT</h2>
+
+<div class="concept-section">
+<p>
+    The Clubhouse er et socialt oplevelsesunivers, hvor simulatorgolf møder gamingkultur,
+    events og højt humør. Her handler det ikke om handicap eller teknik – men om energi,
+    udfordringer og fællesskab. Med TrackMan-minigames, sjove konkurrencer og et dynamisk miljø
+    skabt til både venner, dates og grupper, bliver golf pludselig til en leg, som alle kan være med i.
+    Det er et sted, hvor grin, high-fives og små triumfer skaber stemningen, og hvor aftener hurtigt
+    udvikler sig til noget, man taler om længe efter.
+  </p>
+
+  <div class="concept-right">
+    <p>
+      Derfor er The Clubhouse også oplagt til events: firmaaftener, fødselsdage, polterabender,
+      studietræf eller bare en spontan aften ude. Her får du en oplevelse, hvor sport, gaming og social
+      hygge smelter sammen – med kolde øl, dæmpet lys, god musik og minigames der holder tempoet højt.
+    </p>
+
+    <div class="koncept-btn">
+      <img src="/koncept.png" alt="Koncept">
+    </div>
+  </div>
+
+</div>
+
+  <h2 class="section-title">TRACKMAN MINIGAMES & CHALLENGES</h2>
+  <section class="carousel-section">
+    <div class="carousel-window">
+      <div class="carousel-track" id="carouselTrack">
+        {games.map((game, idx) => (
+          <div class="card" data-index={idx}>
+            <img src={game.img} alt={game.title} />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="arrow-wrap">
+      <button class="arrow-btn" id="arrowLeft"><img src="/arrow-left.png" alt="Left" /></button>
+      <button class="arrow-btn" id="arrowRight"><img src="/arrow-right.png" alt="Right" /></button>
+    </div>
+  </section>
+
+  <h2 class="section-title">HVILKEN SPILLER ER DU?</h2>
+
+<section class="player-carousel">
+
+  <button class="player-arrow" id="playerPrev">
+    <img src="/arrow-left.png" alt="Previous">
+  </button>
+
+  <div class="player-slide-wrapper" id="playerWrapper">
+    <div class="player-track" id="playerTrack">
+
+
+      <div class="player-slide">
+        <div class="player-card-img">
+          <img src="/player1.png">
+          <div class="player-card-label">PLAYER 1</div>
+>>>>>>> ca1339c (index rettelser)
         </div>
       </div>
 
+<<<<<<< HEAD
       <div class="arrow-wrap">
         <button class="arrow-btn" id="arrowLeft"><img src="/arrow-left.png" alt="Left" /></button>
         <button class="arrow-btn" id="arrowRight"><img src="/arrow-right.png" alt="Right" /></button>
@@ -612,10 +899,15 @@ const games: Game[] = await res.json();
                 <img src="/book.png" alt="Book Now" />
               </div>
             </div>
+=======
+          <div class="book-btn">
+            <img src="/book.png" alt="Book Now">
+>>>>>>> ca1339c (index rettelser)
           </div>
         </div>
       </div>
 
+<<<<<<< HEAD
       <button class="player-arrow" id="playerNext">
         <img src="/arrow-right.png" alt="Next" />
       </button>
@@ -694,11 +986,178 @@ const games: Game[] = await res.json();
             index = Math.max(index - 1, 0);
             update();
           });
+=======
+      <div class="player-slide">
+        <div class="player-card-img">
+          <img src="/player2.png">
+          <div class="player-card-label">PLAYER 2</div>
+        </div>
+        <div class="player-card-text">
+          <h3>ØL-MESTEREN</h3>
+          <ul>
+            <li>Bliver bedre for hver tår</li><br>
+            <li>Tager spillet useriøst men vinder alligevel</li><br>
+            <li>“Et slag mere – for hyggen!”</li>
+          </ul>
+
+          <div class="book-btn">
+            <img src="/book.png" alt="Book Now">
+          </div>
+        </div>
+      </div>
+
+      <div class="player-slide">
+        <div class="player-card-img">
+          <img src="/player3.png">
+          <div class="player-card-label">PLAYER 3</div>
+        </div>
+        <div class="player-card-text">
+          <h3>TRYHARD'EREN</h3>
+          <ul>
+            <li>Ankommer med handsker og tees</li><br>
+            <li>Analyserer hvert slag</li><br>
+            <li>Stille hvis du slår længere</li>
+          </ul>
+
+          <div class="book-btn">
+            <img src="/book.png" alt="Book Now">
+          </div>
+        </div>
+      </div>
+
+      <div class="player-slide">
+        <div class="player-card-img">
+          <img src="/player4.png">
+          <div class="player-card-label">PLAYER 4</div>
+        </div>
+        <div class="player-card-text">
+          <h3>FORBIEREN</h3>
+          <ul>
+            <li>“Jeg plejer at være bedre!”</li><br>
+            <li>Skyder 500m… eller 5cm</li><br>
+            <li>Har uheld i verdensklasse</li>
+          </ul>
+
+          <div class="book-btn">
+            <img src="/book.png" alt="Book Now">
+          </div>
+        </div>
+      </div>
+
+      <div class="player-slide">
+        <div class="player-card-img">
+          <img src="/player5.png">
+          <div class="player-card-label">PLAYER 5</div>
+        </div>
+        <div class="player-card-text">
+          <h3>HYGGESPILLEREN</h3>
+          <ul>
+            <li>Med for stemningen</li><br>
+            <li>Ler højere end alle andre</li><br>
+            <li>Bedste slag – ved et uheld</li><br>
+          </ul>
+
+          <div class="book-btn">
+            <img src="/book.png" alt="Book Now">
+          </div>
+        </div>
+      </div>
+
+      <div class="player-slide">
+        <div class="player-card-img">
+          <img src="/player6.png">
+          <div class="player-card-label">PLAYER 6</div>
+        </div>
+        <div class="player-card-text">
+          <h3>DEN TAVSE SNIGSKYTTE</h3>
+          <ul>
+            <li>Rammer alt – siger intet</li><br>
+            <li>Speedrunner TrackMan</li><br>
+            <li>Vinder uden at prøve</li>
+          </ul>
+
+          <div class="book-btn">
+            <img src="/book.png" alt="Book Now">
+          </div>
+        </div>
+      </div>
+>>>>>>> ca1339c (index rettelser)
 
         window.addEventListener("resize", update);
 
+<<<<<<< HEAD
         update();
       })();
     </script>
   </section></Layout
 >
+=======
+  <button class="player-arrow" id="playerNext">
+    <img src="/arrow-right.png" alt="Next">
+  </button>
+
+</section>
+</Layout>
+  <div class="footer"></div>
+
+
+<script is:inline>
+  (function(){
+    const track = document.getElementById("carouselTrack");
+    if(!track) return;
+    const cards = Array.from(track.querySelectorAll(".card"));
+    const prevBtn = document.getElementById("arrowLeft");
+    const nextBtn = document.getElementById("arrowRight");
+    const gap = 20;
+    let idx = 0;
+
+    function update() {
+      if(!cards.length) return;
+      const cardWidth = cards[0].offsetWidth + gap;
+      const maxIndex = Math.max(0, cards.length - 3);
+      idx = Math.min(Math.max(0, idx), maxIndex);
+      track.style.transform = `translate3d(${-idx * cardWidth}px, 0, 0)`;
+    }
+
+    prevBtn && (prevBtn.onclick = () => { idx = Math.max(0, idx - 1); update(); });
+    nextBtn && (nextBtn.onclick = () => { idx = Math.min(idx + 1, Math.max(0, cards.length - 3)); update(); });
+    document.addEventListener('keydown', e => {
+      if(e.key === 'ArrowLeft'){ idx = Math.max(0, idx - 1); update(); }
+      if(e.key === 'ArrowRight'){ idx = Math.min(idx + 1, Math.max(0, cards.length - 3)); update(); }
+    });
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  (() => {
+    const wrapper = document.getElementById("playerWrapper");
+    const slides = Array.from(document.querySelectorAll(".player-slide"));
+    const next = document.getElementById("playerNext");
+    const prev = document.getElementById("playerPrev");
+
+    let index = 0;
+
+    function scrollToIndex() {
+      const width = wrapper.clientWidth;
+      wrapper.scrollTo({
+        left: index * width,
+        behavior: "smooth",
+      });
+    }
+
+    next?.addEventListener("click", () => {
+      index = Math.min(index + 1, slides.length - 1);
+      scrollToIndex();
+    });
+
+    prev?.addEventListener("click", () => {
+      index = Math.max(index - 1, 0);
+      scrollToIndex();
+    });
+
+    wrapper.addEventListener("scroll", () => {
+      index = Math.round(wrapper.scrollLeft / wrapper.clientWidth);
+    });
+  })();
+</script>
+>>>>>>> ca1339c (index rettelser)
