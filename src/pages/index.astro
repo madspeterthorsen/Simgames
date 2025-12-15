@@ -37,7 +37,8 @@ const games: Game[] = Array.isArray(data) ? data : [];
 }
 
 p {
-  text-align: left;
+  text-align: justify;
+  padding: 20px;
 }
    
 .hero-text h1 { margin: 0 0 .5rem 0; font-size: 2.6rem; letter-spacing: 2px; }
@@ -264,6 +265,15 @@ opacity: 0.9;
   line-height: 1.6;
 }
 
+.player-card-text ul li::before {
+  content: "• ";
+  color: var(--accent);
+}
+
+.player-card-text ul li + li {
+  margin-top: 0.4rem;
+}
+
 .book-btn img {
   width: 180px;
   height: auto;
@@ -322,7 +332,7 @@ opacity: 0.9;
 .koncept-btn {
   margin-top: 1rem;
   align-self: flex-end;
-  margin-right: 145px;
+  margin-right: 130px;
 }
 
 .koncept-btn img {
@@ -487,13 +497,12 @@ opacity: 0.9;
 
     <div class="concept-section">
       <p>
-        The Clubhouse er et socialt oplevelsesunivers, hvor simulatorgolf møder gamingkultur, events og højt humør. Her handler det ikke om handicap eller teknik – men om energi, udfordringer og fællesskab. Med TrackMan-minigames, sjove konkurrencer
-        og et dynamisk miljø skabt til både venner, dates og grupper, bliver golf pludselig til en leg, som alle kan være med i. Det er et sted, hvor grin, high-fives og små triumfer skaber stemningen, og hvor aftener hurtigt udvikler sig til noget,
-        man taler om længe efter.
+        The Clubhouse er et socialt oplevelsesunivers, hvor simulatorgolf møder gamingkultur, events og højt humør. Her handler det overhovedet ikke om handicap eller teknik – men om energi, udfordringer og fællesskab. Med TrackMan-minigames, sjove konkurrencer
+        og et dynamisk miljø skabt til både venner, dates og grupper, bliver golf pludselig til en leg, som alle kan være med i.
       </p>
       <div class="concept-right">
         <p>
-          Derfor er The Clubhouse også oplagt til events: firmaaftener, fødselsdage, polterabender, studietræf eller bare en spontan aften ude. Her får du en oplevelse, hvor sport, gaming og social hygge smelter sammen – med kolde øl, dæmpet lys, god
+          Derfor er The Clubhouse også oplagt til events som eksempelvis: firmaaftener, fødselsdage, polterabender, studietræf, konfirmation eller bare en spontan aften ude. Her får du en oplevelse, hvor sport, gaming og social hygge smelter sammen – med kolde øl, dæmpet lys, god
           musik og minigames der holder tempoet højt.
         </p>
         <div class="koncept-btn">
