@@ -7,16 +7,18 @@ interface Game {
   img: string;
 }
 const SUPABASE_URL = "https://wxjylkvjfnoijclnsffw.supabase.co";
-const SUPABASE_KEY = "sb_secret_jAuh8XhtJtcsYsH5yPDOYw_igg62J3R";
+const SUPABASE_KEY =
+  import.meta.env.PUBLIC_SUPABASE_KEY ||
+  "sb_secret_jAuh8XhtJtcsYsH5yPDOYw_igg62J3R";
 
 const res = await fetch(`${SUPABASE_URL}/rest/v1/games?select=*`, {
   headers: {
     apikey: SUPABASE_KEY,
-    Authorization: `Bearer ${SUPABASE_KEY}`,
   },
 });
 
-const games: Game[] = await res.json();
+const data = await res.json();
+const games: Game[] = Array.isArray(data) ? data : [];
 ---
 
 <Layout>
@@ -25,7 +27,7 @@ const games: Game[] = await res.json();
       --accent: #00eaff;
     }
 
-<<<<<<< HEAD
+
     .hero {
       max-width: 900px;
       margin: 0 auto;
@@ -33,22 +35,15 @@ const games: Game[] = await res.json();
       padding-bottom: 5rem;
       text-align: center;
     }
-=======
+
 p {
   text-align: left;
 }
 
-.hero {
-  max-width: 900px;
-  margin: 0 auto;
-  padding-top: 12rem;
-  padding-bottom: 5rem;
-  text-align: center;
-}
+
     
 .hero-text h1 { margin: 0 0 .5rem 0; font-size: 2.6rem; letter-spacing: 2px; }
 .hero-text h2 { margin: 0; font-size: 1.25rem; opacity: .9; }
->>>>>>> ca1339c (index rettelser)
 
     .hero-text h1 {
       margin: 0 0 0.5rem 0;
@@ -61,7 +56,7 @@ p {
       opacity: 0.9;
     }
 
-<<<<<<< HEAD
+
     .hero-gif-wrapper {
       width: 100%;
       max-width: 900px;
@@ -71,7 +66,7 @@ p {
       box-shadow: 0 0 40px rgba(255, 255, 255, 0.35);
       background: transparent;
     }
-=======
+
 .section-title {
   margin-top: 6.5rem;
   margin-bottom: 0.4rem;
@@ -79,7 +74,6 @@ p {
   font-size: 1.7rem;
   letter-spacing: 2px;
 }
->>>>>>> ca1339c (index rettelser)
 
     .hero-gif {
       width: 100%;
@@ -91,7 +85,7 @@ p {
       background: transparent;
     }
 
-<<<<<<< HEAD
+
     .section-title {
       margin-top: 6.5rem;
       margin-bottom: 1.2rem;
@@ -99,7 +93,7 @@ p {
       font-size: 1.7rem;
       letter-spacing: 2px;
     }
-=======
+
 .carousel-section {
   max-width: 1040px;
   margin: 0 auto 3.5rem;
@@ -115,7 +109,6 @@ p {
 .card { width:160px; height:220px; border-radius:15px; overflow:hidden; flex-shrink:0; cursor:pointer; background: rgba(0,0,0,0.04); }
 .card img { width:100%; height:100%; object-fit:cover; display:block; }
 .card:hover { transform: translateY(-8px) scale(1.05); transition: transform .22s ease; }
->>>>>>> ca1339c (index rettelser)
 
     .concept-section {
       max-width: 900px;
@@ -184,7 +177,7 @@ p {
       transform: scale(1.12);
     }
 
-<<<<<<< HEAD
+
     /* PLAYER CAROUSEL — STABLE, ONE SLIDE AT A TIME */
     /* PLAYER CAROUSEL BOX – MATCH KONCEPT-STILEN */
     .player-carousel {
@@ -218,7 +211,7 @@ p {
     .player-arrow img:hover {
       transform: scale(1.08);
     }
-=======
+
 .player-carousel {
   max-width: 1100px;
   margin: 4rem auto 10rem;
@@ -240,7 +233,7 @@ p {
 .player-arrow { background:none; border:none; cursor:pointer; z-index:20; padding:0; }
 .player-arrow img { width:64px; height:64px; transition: transform .18s ease; display:block; }
 .player-arrow img:hover { transform: scale(1.08); }
->>>>>>> ca1339c (index rettelser)
+
 
 .player-slide-wrapper {
   width: 100%;
@@ -249,19 +242,19 @@ p {
   scroll-behavior: smooth;
 }
 
-<<<<<<< HEAD
+
     .player-track {
       display: flex;
       transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
       will-change: transform;
       width: 100%;
     }
-=======
+
 .player-track {
   display: flex;
   width: 100%;
 }
->>>>>>> ca1339c (index rettelser)
+
 
 .player-slide {
   flex: 0 0 100%;
@@ -275,7 +268,6 @@ p {
   align-items: center;
 }
 
-<<<<<<< HEAD
     .player-card-img {
       width: 100%;
       height: 250px;
@@ -330,7 +322,7 @@ p {
       display: flex;
       flex-direction: column;
     }
-=======
+
 .player-card-img {
   width: 100%;
   height: 250px;
@@ -367,7 +359,6 @@ p {
   content: url('/bookhover.png');
   transform: scale(1.02);
 }
->>>>>>> ca1339c (index rettelser)
 
     .koncept-btn {
       margin-top: 1rem;
@@ -375,7 +366,7 @@ p {
       margin-right: 145px;
     }
 
-<<<<<<< HEAD
+
     .koncept-btn img {
       width: 180px;
       height: auto;
@@ -424,7 +415,8 @@ p {
       }
       .section-title {
         margin-top: 3.5rem;
-=======
+      }
+
 .koncept-btn {
   margin-top: 1.75rem;
   align-self: flex-end;
@@ -458,7 +450,7 @@ p {
       .section-title { margin-top: 3.5rem; }
       p {
         text-align: left;
->>>>>>> ca1339c (index rettelser)
+
       }
     }
 
@@ -474,19 +466,19 @@ p {
         padding-right: 1rem;
       }
 
-<<<<<<< HEAD
+
       .hero-text h1 {
         font-size: 2rem;
         letter-spacing: 1px;
       }
-=======
+
 .hero {
   padding-top: 7rem;
   padding-bottom: 3rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
->>>>>>> ca1339c (index rettelser)
+
 
       .hero-text h2 {
         font-size: 1rem;
@@ -503,7 +495,7 @@ p {
         letter-spacing: 1px;
       }
 
-<<<<<<< HEAD
+
       /* KONCEPT */
       .concept-section {
         grid-template-columns: 1fr;
@@ -515,7 +507,7 @@ p {
         align-items: center;
         text-align: left;
       }
-=======
+
 .section-title {
   margin-top: 3rem;
   font-size: 1.3rem;
@@ -527,40 +519,40 @@ p {
 
   padding: 0 1rem;
 }
->>>>>>> ca1339c (index rettelser)
+
 
       .koncept-btn {
         align-self: center;
         margin-right: 0;
       }
 
-<<<<<<< HEAD
+
       .koncept-btn img {
         width: 140px;
       }
-=======
+
 .koncept-btn {
   align-self: center;
   margin-top: 1.75rem;
   margin-right: 0;
 }
->>>>>>> ca1339c (index rettelser)
+
 
       /* GAMES CAROUSEL */
       .carousel-section {
         padding: 0 0.5rem;
       }
 
-<<<<<<< HEAD
+
       .card {
         width: 140px;
         height: 190px;
       }
-=======
+
 .carousel-section {
   padding: 0 0.5rem;
 }
->>>>>>> ca1339c (index rettelser)
+
 
       .arrow-btn img {
         width: 56px;
@@ -574,18 +566,18 @@ p {
         gap: 1rem;
       }
 
-<<<<<<< HEAD
+
       .player-arrow img {
         width: 48px;
         height: 48px;
       }
-=======
+
 .player-carousel {
   flex-direction: column;
   padding: 1.5rem 1rem;
   gap: 1rem;
 }
->>>>>>> ca1339c (index rettelser)
+
 
       .player-slide {
         grid-template-columns: 1fr;
@@ -603,7 +595,7 @@ p {
         text-align: center;
       }
 
-<<<<<<< HEAD
+
       .player-card-text ul {
         font-size: 0.95rem;
         text-align: center;
@@ -623,43 +615,17 @@ p {
 
   <!-- HERO -->
   <section class="hero">
-=======
-.player-card-text h3 {
-  font-size: 1.4rem;
-  text-align: left;
-}
-
-.player-card-text ul {
-  font-size: 0.95rem;
-  text-align: left;
-}
-
-.book-btn {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 1rem;
-}
-
-.book-btn img {
-  width: 150px;
-}
-}
-</style>
-
-<section class="hero">
->>>>>>> ca1339c (index rettelser)
     <div class="hero-text">
       <h1>THE CLUBHOUSE</h1>
       <h2>Simulatorgolf. Challenges. Vibes. Fællesskab.</h2>
     </div>
-
     <div class="hero-gif-wrapper">
       <video class="hero-gif" src="/hero.mp4" autoplay muted loop playsinline></video>
     </div>
+  </section>
 
-<<<<<<< HEAD
-    <!-- KONCEPT -->
-    <h2 class="section-title">KONCEPT</h2>
+
+<h2 class="section-title">KONCEPT</h2>
 
     <div class="concept-section">
       <p>
@@ -667,13 +633,11 @@ p {
         og et dynamisk miljø skabt til både venner, dates og grupper, bliver golf pludselig til en leg, som alle kan være med i. Det er et sted, hvor grin, high-fives og små triumfer skaber stemningen, og hvor aftener hurtigt udvikler sig til noget,
         man taler om længe efter.
       </p>
-
       <div class="concept-right">
         <p>
           Derfor er The Clubhouse også oplagt til events: firmaaftener, fødselsdage, polterabender, studietræf eller bare en spontan aften ude. Her får du en oplevelse, hvor sport, gaming og social hygge smelter sammen – med kolde øl, dæmpet lys, god
           musik og minigames der holder tempoet højt.
         </p>
-
         <div class="koncept-btn">
           <img src="/koncept.png" alt="Koncept" />
         </div>
@@ -686,93 +650,32 @@ p {
       <div class="carousel-window">
         <div class="carousel-track" id="carouselTrack">
           {
-            games.map((game, idx) => (
-              <a class="card" href={`/${game.id}`} data-index={idx}>
-                <img src={game.img} alt={game.title} />
-              </a>
-            ))
+            games.length > 0
+              ? games.map((game, idx) => (
+                  <a class="card" href={`/${game.id}`} data-index={idx}>
+                    <img src={game.img} alt={game.title} />
+                  </a>
+                ))
+              : (
+                  <div class="card">
+                    <img src="/placeholder.png" alt="Coming soon" />
+                  </div>
+                )
           }
-=======
-
-<h2 class="section-title">KONCEPT</h2>
-
-<div class="concept-section">
-<p>
-    The Clubhouse er et socialt oplevelsesunivers, hvor simulatorgolf møder gamingkultur,
-    events og højt humør. Her handler det ikke om handicap eller teknik – men om energi,
-    udfordringer og fællesskab. Med TrackMan-minigames, sjove konkurrencer og et dynamisk miljø
-    skabt til både venner, dates og grupper, bliver golf pludselig til en leg, som alle kan være med i.
-    Det er et sted, hvor grin, high-fives og små triumfer skaber stemningen, og hvor aftener hurtigt
-    udvikler sig til noget, man taler om længe efter.
-  </p>
-
-  <div class="concept-right">
-    <p>
-      Derfor er The Clubhouse også oplagt til events: firmaaftener, fødselsdage, polterabender,
-      studietræf eller bare en spontan aften ude. Her får du en oplevelse, hvor sport, gaming og social
-      hygge smelter sammen – med kolde øl, dæmpet lys, god musik og minigames der holder tempoet højt.
-    </p>
-
-    <div class="koncept-btn">
-      <img src="/koncept.png" alt="Koncept">
-    </div>
-  </div>
-
-</div>
-
-  <h2 class="section-title">TRACKMAN MINIGAMES & CHALLENGES</h2>
-  <section class="carousel-section">
-    <div class="carousel-window">
-      <div class="carousel-track" id="carouselTrack">
-        {games.map((game, idx) => (
-          <div class="card" data-index={idx}>
-            <img src={game.img} alt={game.title} />
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <div class="arrow-wrap">
-      <button class="arrow-btn" id="arrowLeft"><img src="/arrow-left.png" alt="Left" /></button>
-      <button class="arrow-btn" id="arrowRight"><img src="/arrow-right.png" alt="Right" /></button>
-    </div>
-  </section>
-
-  <h2 class="section-title">HVILKEN SPILLER ER DU?</h2>
-
-<section class="player-carousel">
-
-  <button class="player-arrow" id="playerPrev">
-    <img src="/arrow-left.png" alt="Previous">
-  </button>
-
-  <div class="player-slide-wrapper" id="playerWrapper">
-    <div class="player-track" id="playerTrack">
-
-
-      <div class="player-slide">
-        <div class="player-card-img">
-          <img src="/player1.png">
-          <div class="player-card-label">PLAYER 1</div>
->>>>>>> ca1339c (index rettelser)
         </div>
       </div>
-
-<<<<<<< HEAD
       <div class="arrow-wrap">
         <button class="arrow-btn" id="arrowLeft"><img src="/arrow-left.png" alt="Left" /></button>
         <button class="arrow-btn" id="arrowRight"><img src="/arrow-right.png" alt="Right" /></button>
       </div>
     </section>
 
-    <!-- PLAYER CAROUSEL -->
     <h2 class="section-title">HVILKEN SPILLER ER DU?</h2>
 
     <section class="player-carousel">
       <button class="player-arrow" id="playerPrev">
         <img src="/arrow-left.png" alt="Previous" />
       </button>
-
       <div class="player-slide-wrapper" id="playerWrapper">
         <div class="player-track" id="playerTrack">
           <!-- SLIDE 1 -->
@@ -788,14 +691,11 @@ p {
                 <li>Snakker om sit slag resten af året</li><br />
                 <li>Har ét godt slag per aften</li>
               </ul>
-
-              <!-- Booking button -->
               <div class="book-btn">
                 <img src="/book.png" alt="Book Now" />
               </div>
             </div>
           </div>
-
           <!-- SLIDE 2 -->
           <div class="player-slide">
             <div class="player-card-img">
@@ -809,14 +709,11 @@ p {
                 <li>Tager spillet useriøst men vinder alligevel</li><br />
                 <li>“Et slag mere – for hyggen!”</li>
               </ul>
-
-              <!-- Booking button -->
               <div class="book-btn">
                 <img src="/book.png" alt="Book Now" />
               </div>
             </div>
           </div>
-
           <!-- SLIDE 3 -->
           <div class="player-slide">
             <div class="player-card-img">
@@ -830,14 +727,11 @@ p {
                 <li>Analyserer hvert slag</li><br />
                 <li>Stille hvis du slår længere</li>
               </ul>
-
-              <!-- Booking button -->
               <div class="book-btn">
                 <img src="/book.png" alt="Book Now" />
               </div>
             </div>
           </div>
-
           <!-- SLIDE 4 -->
           <div class="player-slide">
             <div class="player-card-img">
@@ -851,14 +745,11 @@ p {
                 <li>Skyder 500m… eller 5cm</li><br />
                 <li>Har uheld i verdensklasse</li>
               </ul>
-
-              <!-- Booking button -->
               <div class="book-btn">
                 <img src="/book.png" alt="Book Now" />
               </div>
             </div>
           </div>
-
           <!-- SLIDE 5 -->
           <div class="player-slide">
             <div class="player-card-img">
@@ -872,14 +763,11 @@ p {
                 <li>Ler højere end alle andre</li><br />
                 <li>Bedste slag – ved et uheld</li><br />
               </ul>
-
-              <!-- Booking button -->
               <div class="book-btn">
                 <img src="/book.png" alt="Book Now" />
               </div>
             </div>
           </div>
-
           <!-- SLIDE 6 -->
           <div class="player-slide">
             <div class="player-card-img">
@@ -893,21 +781,13 @@ p {
                 <li>Speedrunner TrackMan</li><br />
                 <li>Vinder uden at prøve</li>
               </ul>
-
-              <!-- Booking button -->
               <div class="book-btn">
                 <img src="/book.png" alt="Book Now" />
               </div>
             </div>
-=======
-          <div class="book-btn">
-            <img src="/book.png" alt="Book Now">
->>>>>>> ca1339c (index rettelser)
           </div>
         </div>
       </div>
-
-<<<<<<< HEAD
       <button class="player-arrow" id="playerNext">
         <img src="/arrow-right.png" alt="Next" />
       </button>
@@ -986,119 +866,16 @@ p {
             index = Math.max(index - 1, 0);
             update();
           });
-=======
-      <div class="player-slide">
-        <div class="player-card-img">
-          <img src="/player2.png">
-          <div class="player-card-label">PLAYER 2</div>
-        </div>
-        <div class="player-card-text">
-          <h3>ØL-MESTEREN</h3>
-          <ul>
-            <li>Bliver bedre for hver tår</li><br>
-            <li>Tager spillet useriøst men vinder alligevel</li><br>
-            <li>“Et slag mere – for hyggen!”</li>
-          </ul>
-
-          <div class="book-btn">
-            <img src="/book.png" alt="Book Now">
-          </div>
-        </div>
-      </div>
-
-      <div class="player-slide">
-        <div class="player-card-img">
-          <img src="/player3.png">
-          <div class="player-card-label">PLAYER 3</div>
-        </div>
-        <div class="player-card-text">
-          <h3>TRYHARD'EREN</h3>
-          <ul>
-            <li>Ankommer med handsker og tees</li><br>
-            <li>Analyserer hvert slag</li><br>
-            <li>Stille hvis du slår længere</li>
-          </ul>
-
-          <div class="book-btn">
-            <img src="/book.png" alt="Book Now">
-          </div>
-        </div>
-      </div>
-
-      <div class="player-slide">
-        <div class="player-card-img">
-          <img src="/player4.png">
-          <div class="player-card-label">PLAYER 4</div>
-        </div>
-        <div class="player-card-text">
-          <h3>FORBIEREN</h3>
-          <ul>
-            <li>“Jeg plejer at være bedre!”</li><br>
-            <li>Skyder 500m… eller 5cm</li><br>
-            <li>Har uheld i verdensklasse</li>
-          </ul>
-
-          <div class="book-btn">
-            <img src="/book.png" alt="Book Now">
-          </div>
-        </div>
-      </div>
-
-      <div class="player-slide">
-        <div class="player-card-img">
-          <img src="/player5.png">
-          <div class="player-card-label">PLAYER 5</div>
-        </div>
-        <div class="player-card-text">
-          <h3>HYGGESPILLEREN</h3>
-          <ul>
-            <li>Med for stemningen</li><br>
-            <li>Ler højere end alle andre</li><br>
-            <li>Bedste slag – ved et uheld</li><br>
-          </ul>
-
-          <div class="book-btn">
-            <img src="/book.png" alt="Book Now">
-          </div>
-        </div>
-      </div>
-
-      <div class="player-slide">
-        <div class="player-card-img">
-          <img src="/player6.png">
-          <div class="player-card-label">PLAYER 6</div>
-        </div>
-        <div class="player-card-text">
-          <h3>DEN TAVSE SNIGSKYTTE</h3>
-          <ul>
-            <li>Rammer alt – siger intet</li><br>
-            <li>Speedrunner TrackMan</li><br>
-            <li>Vinder uden at prøve</li>
-          </ul>
-
-          <div class="book-btn">
-            <img src="/book.png" alt="Book Now">
-          </div>
-        </div>
-      </div>
->>>>>>> ca1339c (index rettelser)
 
         window.addEventListener("resize", update);
 
-<<<<<<< HEAD
+
         update();
       })();
     </script>
-  </section></Layout
->
-=======
-  <button class="player-arrow" id="playerNext">
-    <img src="/arrow-right.png" alt="Next">
-  </button>
-
-</section>
+  </section>
 </Layout>
-  <div class="footer"></div>
+
 
 
 <script is:inline>
@@ -1160,4 +937,3 @@ p {
     });
   })();
 </script>
->>>>>>> ca1339c (index rettelser)
