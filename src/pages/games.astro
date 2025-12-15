@@ -2,28 +2,31 @@
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/footer.astro";
 
-const endpoint = "https://wxjylkvjfnoijclnsffw.supabase.co/rest/v1/games?select=*";
-const key = "sb_publishable_dRBm1ZfHY2t9q_m2tSbJQg_mhUMrYF9";
+interface Game {
+  id: number;
+  title?: string;
+  img?: string;
+}
 
-const options = {
-  method: "GET",
-  headers: {
-    apikey: key,
-    Authorization: `Bearer ${key}`,
-    "Content-Type": "application/json",
-  },
-};
+const SUPABASE_URL = "https://wxjylkvjfnoijclnsffw.supabase.co";
+const SUPABASE_KEY = import.meta.env.PUBLIC_SUPABASE_KEY || "sb_secret_jAuh8XhtJtcsYsH5yPDOYw_igg62J3R";
 
-let games = [];
+let games: Game[] = [];
 let fetchError = "";
 
 try {
-  const response = await fetch(endpoint, options);
-  if (!response.ok) {
-    const errorText = await response.text();
-    fetchError = `Supabase fetch failed: ${response.status} - ${errorText}`;
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/games?select=*`, {
+    headers: {
+      apikey: SUPABASE_KEY,
+    },
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    fetchError = `Supabase fetch failed: ${res.status} - ${errorText}`;
   } else {
-    games = await response.json();
+    const data = await res.json();
+    games = Array.isArray(data) ? data : [];
   }
 } catch (err) {
   fetchError = `Supabase fetch error: ${err}`;
@@ -51,7 +54,7 @@ try {
             if (!game.img) return null;
 
             return (
-              <a href="#" class="game-card">
+              <a href={`/${game.id}`} class="game-card">
                 <img src={game.img} alt={game.title ?? "Game"} loading="lazy" />
               </a>
             );
@@ -134,11 +137,7 @@ try {
       border-radius: 22px;
       overflow: hidden;
       position: relative;
-      background: radial-gradient(
-        circle at top,
-        rgba(120, 40, 200, 0.75),
-        rgba(5, 8, 30, 0.98)
-      );
+      background: radial-gradient(circle at top, rgba(120, 40, 200, 0.75), rgba(5, 8, 30, 0.98));
       box-shadow:
         0 0 18px rgba(232, 3, 178, 0.5),
         0 0 32px rgba(0, 200, 255, 0.35),
@@ -176,9 +175,15 @@ try {
     /* ===== ANIMATION ===== */
 
     @keyframes floaty {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-      100% { transform: translateY(0); }
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+      100% {
+        transform: translateY(0);
+      }
     }
 
     /* ===== RESPONSIVE ===== */
