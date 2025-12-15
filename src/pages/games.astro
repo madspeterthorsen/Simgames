@@ -63,8 +63,8 @@ try {
       }
     </section>
   </main>
-
   <Footer />
+
 
   <style>
     *,
@@ -78,7 +78,7 @@ try {
     .games-page {
       min-height: 100vh;
       width: 100%;
-      padding: 11.5rem 1.5rem 4rem;
+      padding: 12rem 1.5rem 4rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -91,16 +91,16 @@ try {
 
     /* H1 arver global PixelifySans */
     .games-title {
-      font-size: clamp(2.8rem, 4vw, 3.6rem);
-      letter-spacing: 0.12em;
-      margin: 0;
+      margin: 0 0 0.5rem 0;
+      font-size: 2.6rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      text-shadow: 0 0 14px rgba(255, 255, 255, 0.4);
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
     }
 
     .games-subtitle {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
+      margin: 0;
+      font-size: 1.25rem;
       opacity: 0.9;
     }
 
@@ -137,13 +137,13 @@ try {
       border-radius: 22px;
       overflow: hidden;
       position: relative;
-      background: radial-gradient(circle at top, rgba(120, 40, 200, 0.75), rgba(5, 8, 30, 0.98));
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.98));
       box-shadow:
-        0 0 18px rgba(232, 3, 178, 0.5),
-        0 0 32px rgba(0, 200, 255, 0.35),
+        0 0 18px rgba(255, 255, 255, 0.5),
+        0 0 32px rgba(255, 255, 255, 0.35),
         inset 0 0 20px rgba(255, 255, 255, 0.1);
       display: block;
-      filter: drop-shadow(0 0 12px rgba(120, 0, 255, 0.4));
+      filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4));
       animation: floaty 4s ease-in-out infinite;
       transition:
         transform 0.3s ease,
@@ -196,8 +196,36 @@ try {
 
     @media (max-width: 768px) {
       .games-grid {
-        gap: 1rem;
+        gap: 3rem;
+      }
+
+      .games-page {
+        padding-top: 8rem;
+      }
+
+      .games-title {
+        font-size: 2.1rem;
+        letter-spacing: 1px;
+      }
+
+      .games-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .games-page {
+        padding-top: 7rem;
+      }
+
+      .games-title {
+        font-size: 1.8rem;
+      }
+
+      .games-subtitle {
+        font-size: 0.9rem;
       }
     }
   </style>
+
 </Layout>
