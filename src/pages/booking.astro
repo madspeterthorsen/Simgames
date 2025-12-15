@@ -3,131 +3,169 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
+  <div class="cloud-layer">
+    <img src="/sky.png" class="cloud cloud-1" alt="" aria-hidden="true" />
+    <img src="/sky.png" class="cloud cloud-2" alt="" aria-hidden="true" />
+    <img src="/sky.png" class="cloud cloud-3" alt="" aria-hidden="true" />
+  </div>
+
   <style>
-    :root {
-      --accent: #00eaff;
-    }
 
-    p {
-      text-align: left;
-    }
+:root {
+  --accent: #00eaff;
+}
 
-    /* HERO */
-    .hero {
-      max-width: 900px;
-      margin: 0 auto;
-      padding-top: 12rem;
-      padding-bottom: 4rem;
-      text-align: center;
-    }
+p {
+  text-align: justify;
+  margin-right: 10px;
+  word-spacing: normal;
+}
 
-    .hero-text h1 {
-      margin: 0 0 0.5rem 0;
-      font-size: 2.6rem;
-      letter-spacing: 2px;
-    }
+.hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 12rem;
+  padding-bottom: 5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
 
-    .hero-text h2 {
-      margin: 0;
-      font-size: 1.25rem;
-      opacity: 0.9;
-    }
+.hero-text h1 {
+  margin: 0 0 0.75rem 0;
+  font-size: 2.8rem;
+  letter-spacing: 3px;
+}
 
-    /* SECTION TITLE */
-    .section-title {
-      margin-top: 3.5rem;
-      margin-bottom: 1.2rem;
-      text-align: center;
-      font-size: 1.7rem;
-      letter-spacing: 2px;
-    }
+.hero-text h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  opacity: 0.85;
+  max-width: 520px;
+  margin-inline: auto;
+}
 
-    /* BOOKING CONTENT */
-    .booking-section {
-      max-width: 900px;
-      margin: 0 auto 4rem;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 2rem;
-      line-height: 1.6;
-    }
+.section-title {
+  margin-top: 3.5rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-size: 1.7rem;
+  letter-spacing: 2px;
+}
 
-    .booking-left p + p {
-      margin-top: 0.8rem;
-    }
+.booking-section {
+  max-width: 920px;
+  margin: 0 auto 5rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  line-height: 1.7;
+  position: relative;
+  z-index: 2;
+}
 
-    .booking-right {
-      padding: 1.5rem;
-      border-radius: 18px;
-      background: rgba(0, 0, 0, 0.35);
-      border: 2px solid rgba(255, 255, 255, 0.35);
-      box-shadow: 0 0 35px rgba(255, 255, 255, 0.15);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+.booking-left p + p {
+  margin-top: 1rem;
+}
 
-    .booking-right h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      letter-spacing: 1px;
-    }
+.booking-right {
+  padding: 2rem;
+  border-radius: 22px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 3px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
 
-    .booking-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 0.98rem;
-    }
+.booking-right h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: 1.5px;
+}
 
-    .booking-list li::before {
-      content: "- ";
-    }
+.booking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
 
-    .booking-list li + li {
-      margin-top: 0.4rem;
-    }
+.booking-list li::before {
+  content: "• ";
+  color: var(--accent);
+}
 
-    /* BOOK BUTTON */
-    .book-btn {
-      display: flex;
-      justify-content: flex-start;
-      margin-top: 1.75rem;
-    }
+.booking-list li + li {
+  margin-top: 0.4rem;
+}
 
-    .book-btn img {
-      width: 180px;
-      height: auto;
-      cursor: pointer;
-      transition: transform 0.25s ease;
-      image-rendering: pixelated;
-    }
+.book-btn {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2rem;
+}
 
-    .book-btn img:hover {
-      content: url("/bookhover.png");
-      transform: scale(1.02);
-    }
+.book-btn img {
+  width: 180px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  image-rendering: pixelated;
+}
 
-    .book-btn {
-      display: flex;
-      justify-content: center;
-      margin-top: 1rem;
-    }
+.book-btn img:hover {
+  content: url("/bookhover.png");
+  transform: scale(1.05);
+}
 
-    .book-btn img {
-      width: 150px;
-    }
+.footer {
+  margin-top: 4rem;
+  height: 80px;
+  background: url("/footer.png");
+  background-size: cover;
+  position: relative;
+  z-index: 2;
+}
 
-    /* FOOTER */
-    .footer {
-      margin-top: 4rem;
-      height: 80px;
-      background: url("/footer.png");
-      background-size: cover;
-    }
+.cloud-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
 
-    /* TABLET / MOBILE */
-    @media (max-width: 820px) {
+.cloud {
+  position: absolute;
+  width: 360px;
+  opacity: 0.18;
+  transition: transform 0.1s linear;
+}
+
+.cloud-1 {
+  top: 4%;
+  left: -6%;
+}
+
+.cloud-2 {
+  top: 14%;
+  right: -8%;
+  width: 420px;
+}
+
+.cloud-3 {
+  top: 26%;
+  left: 12%;
+  width: 300px;
+}
+
+  @media (max-width: 820px) {
       .hero {
         padding-top: 8rem;
         padding-bottom: 3rem;
@@ -148,14 +186,25 @@ import Layout from "../layouts/Layout.astro";
         grid-template-columns: 1fr;
         gap: 1.5rem;
         padding: 0 1rem;
+        margin-bottom: 4rem;
       }
 
       .booking-right {
-        padding: 1.25rem;
+        padding: 1.75rem;
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+      }
+
+      .book-btn {
+        justify-content: center;
+      }
+
+      .cloud {
+        width: 220px;
+
       }
     }
 
-    /* SMALL MOBILE */
     @media (max-width: 480px) {
       .hero {
         padding-top: 7rem;
@@ -170,7 +219,7 @@ import Layout from "../layouts/Layout.astro";
       }
 
       .booking-right h3 {
-        font-size: 1.05rem;
+        font-size: 0.5rem;
       }
 
       .book-btn {
@@ -183,7 +232,6 @@ import Layout from "../layouts/Layout.astro";
     }
   </style>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
       <h1>BOOK DIN TID</h1>
@@ -195,10 +243,17 @@ import Layout from "../layouts/Layout.astro";
 
   <section class="booking-section">
     <div class="booking-left">
-      <p>Du booker din tid til The Clubhouse gennem Simgolfs booking-system. Her vælger du tidspunkt, antal spillere og hvor længe I vil spille.</p>
-      <p>Når I ankommer, hjælper vi jer i gang med simulatoren, minigames og eventuelle pakker. I skal bare møde op, tage vennerne med og være klar på en aften med grin, konkurrence og en afslappet klubstemning.</p>
-      <p>Klik på knappen herunder for at gå direkte til booking. Bookingen sker på Simgolfs egen side, men oplevelsen er den samme: én samlet aften med golf, games og gode vibes.</p>
-
+      <p>
+        Du booker din tid hos The Clubhouse simgames via Simgolfs bookingsystem. Her vælger du nemt tidspunkt, antal spillere og hvor længe I ønsker at spille.
+        </p>
+        
+        <p>
+        Når I ankommer, står vi klar til at hjælpe jer i gang med simulatoren, minigames og eventuelle pakker. I skal bare møde op, tage vennerne med og være klar på en aften fyldt med grin, konkurrence og afslappet klubstemning.
+        </p>
+        
+        <p>
+        Klik på knappen herunder for at gå direkte til booking. Selve bookingen foregår på Simgolfs hjemmeside – men oplevelsen er den samme: én samlet aften med golf, games og gode vibes.
+        </p>
       <div class="book-btn">
         <a href="https://www.simgolf.dk/booking" target="_blank" rel="noreferrer"><img src="/public/book.png" alt="Book knap" /></a>
       </div>
@@ -207,20 +262,39 @@ import Layout from "../layouts/Layout.astro";
     <div class="booking-right">
       <h3>Praktisk info</h3>
       <ul class="booking-list">
-        <li>Vælg tid og simulator direkte i bookingen</li>
-        <li>Velegnet til mindre grupper, dates eller venneaftener</li>
-        <li>Mulighed for drikkevarer og hygge på stedet</li>
-        <li>TrackMan-minigames og challenges er klar til jer</li>
+        <li>Vælg nemt tid og simulator direkte i bookingen</li>
+        <li>Perfekt til mindre grupper, dates og hyggelige venneaftener</li>
+        <li>Mulighed for drikkevarer og afslappet hygge på stedet</li>
+        <li>TrackMan-minigames og challenges står klar, når I gør</li>
       </ul>
-
+    
       <h3>Tip til en god aften</h3>
       <ul class="booking-list">
-        <li>Kom gerne 10–15 minutter før, så I er klar til første slag</li>
-        <li>Overvej på forhånd hvilke minigames I vil prøve</li>
-        <li>Aftal om I spiller for sjov eller om der er noget på spil</li>
+        <li>Kom gerne 10–15 minutter før, så I er klar fra første slag</li>
+        <li>Overvej på forhånd hvilke minigames I vil kaste jer over</li>
+        <li>Aftal om I spiller for sjov – eller om der skal være noget på spil</li>
       </ul>
     </div>
   </section>
 
   <div class="footer"></div>
+  <script is:inline>
+    (() => {
+      const clouds = document.querySelectorAll(".cloud");
+      if (!clouds.length) return;
+
+      const maxMove = window.innerWidth + 600;
+
+      window.addEventListener("scroll", () => {
+        const progress = Math.min(window.scrollY / 600, 1);
+
+        clouds.forEach((cloud, i) => {
+          const direction = i % 2 === 0 ? -1 : 1;
+          const offset = progress * maxMove;
+
+          cloud.style.transform = `translateX(${direction * offset}px)`;
+        });
+      });
+    })();
+  </script>
 </Layout>

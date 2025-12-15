@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
@@ -8,56 +9,61 @@ import Layout from "../layouts/Layout.astro";
     <p class="about-subtitle">teamet bag indoor golf & simgames-universet</p>
   </section>
 
-  <section class="presentation-section">
-    <div class="info-box about-box">
-      <h2>Simgolf & Simgames – hvem står bag?</h2>
-      <p>
-        Simgolf er virksomheden bag centrene, simulatorerne og værtskabet – og Simgames er vores legende spilunivers bygget ovenpå det. Sammen skaber vi et sted, hvor du både kan træne seriøs golf og kaste dig ud i minigames, konkurrencer og
-        pre-parties med crewet.
-      </p>
-
-      <div class="about-grid">
-        <div class="about-card">
-          <h3>Simgolf – virksomheden bag</h3>
-          <p>
-            Simgolf driver moderne indendørs golfcentre med fokus på kvalitet, teknologi og gode rammer. Med Trackman-simulatorer, gennemtænkte faciliteter og et værtskab, der føles afslappet og imødekommende, er vi base for både nye spillere, øvede
-            og hardcore golfere, der vil spille året rundt.
-          </p>
-        </div>
-
-        <div class="about-card">
-          <h3>Hvad er Simgames?</h3>
-          <p>
-            Simgames er vores samling af minigames på simulatoren – et space-inspireret univers, hvor golf bliver til spil, challenges og arcade vibes. I spiller på storskærm, rammer targets, jagter high scores og kan skifte mellem forskellige
-            gamemodes alt efter, hvor meget konkurrence eller kaos I er til.
-          </p>
-        </div>
-
-        <div class="about-card">
-          <h3>Hvorfor vi har skabt Simgames</h3>
-          <p>
-            Vi ville gøre simulator-golf endnu mere tilgængeligt – også for dem, der aldrig har rørt en golfkølle før. Simgames sænker barrieren og gør det nemt at være med, uanset niveau. Det handler om grin, spænding og fælles oplevelser, ikke om
-            handicap og perfektion.
-          </p>
-        </div>
-
-        <div class="about-card">
-          <h3>Til venneaftener, events & pre-parties</h3>
-          <p>
-            Simgames er lavet til alt fra vennegrupper og studiehold til firmaevents og julefrokoster. I kan kombinere minigames med drikkepakker, turneringsformat eller afslappet free play – og bruge Simgolf-centret som ramme for både spil, drinks
-            og videre tur i byen.
-          </p>
-        </div>
-      </div>
-
-      <div class="about-bottom">
-        <h3>Kort sagt</h3>
+  <section class="about-wrapper">
+    <div class="about-flow">
+      <div class="about-main">
+        <h2>Simgolf & Simgames – hvem står bag?</h2>
         <p>
-          Simgolf er virksomheden og rammen – Simgames er universet, hvor spil, minigames og social stemning folder sig ud. Sammen gør vi indoor golf til en oplevelse, der føles lige så meget som gaming og pre-party, som den føles som klassisk golf.
+          Simgolf er virksomheden bag centrene, simulatorerne og værtskabet – og
+          Simgames er vores legende spilunivers bygget ovenpå det. Sammen skaber
+          vi et sted, hvor du både kan træne seriøs golf og kaste dig ud i
+          minigames, konkurrencer og pre-parties med crewet.
+        </p>
+
+        <h3>Simgolf – virksomheden bag</h3>
+        <p>
+          Simgolf driver moderne indendørs golfcentre med fokus på kvalitet,
+          teknologi og gode rammer. Med Trackman-simulatorer, gennemtænkte
+          faciliteter og et værtskab, der føles afslappet og imødekommende,
+          er vi base for både nye spillere, øvede og hardcore golfere.
+        </p>
+
+        <h3>Hvad er Simgames?</h3>
+        <p>
+          Simgames er vores samling af minigames på simulatoren – et
+          space-inspireret univers, hvor golf bliver til spil, challenges
+          og arcade vibes. I spiller på storskærm, rammer targets og jagter
+          highscores i forskellige gamemodes.
+        </p>
+
+        <h3>Hvorfor vi har skabt Simgames</h3>
+        <p>
+          Vi ville gøre simulator-golf mere tilgængeligt. Mindre fokus på
+          handicap og perfektion – mere fokus på grin, tempo og fælles
+          oplevelser, uanset niveau.
         </p>
       </div>
+
+      <aside class="about-aside">
+        <ul>
+          <li>Indoor golf & minigames</li>
+          <li>Perfekt til venneaftener</li>
+          <li>Firmaevents & pre-parties</li>
+          <li>Trackman-simulatorer</li>
+          <li>Social gaming-stemning</li>
+        </ul>
+
+        <div class="about-aside-highlight">
+          <h4>Kort sagt</h4>
+          <p>
+            Simgolf er rammen – Simgames er universet. Sammen gør vi indoor
+            golf til en social, legende og energifyldt oplevelse.
+          </p>
+        </div>
+      </aside>
     </div>
   </section>
+  <Footer />
 </Layout>
 
 <style>
@@ -67,91 +73,46 @@ import Layout from "../layouts/Layout.astro";
     box-sizing: border-box;
   }
   .about-header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 12rem;
+    padding-bottom: 4rem;
     text-align: center;
-    margin-top: 11.5rem;
-    margin-bottom: 2rem;
   }
 
   .about-title {
-    font-size: 3.2rem;
-    letter-spacing: 0.1em;
-    margin: 0;
+    margin: 0 0 0.5rem 0;
+    font-size: 2.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     color: white;
     text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
   }
 
   .about-subtitle {
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
-    opacity: 0.85;
+    margin: 0;
+    font-size: 1.25rem;
+    opacity: 0.9;
     color: white;
   }
 
-  .presentation-section {
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    margin-top: 4rem;
+  .about-wrapper {
+    max-width: 960px;
+    margin: 0 auto 8rem;
+    padding: 2.5rem 2.25rem;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 22px;
+    border: 3px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.15);
   }
 
-  .info-box {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border-radius: 16px;
-    padding: 2rem;
-    border: 2px solid white;
-    box-shadow: 0 0 50px #e803b2;
+  .about-flow {
     max-width: 900px;
-    width: 100%;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .about-box h2 {
-    margin-top: 0;
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-    line-height: 1.4;
-  }
-
-  .about-box > p {
-    line-height: 1.6;
-    margin-bottom: 2rem;
-  }
-
-  .about-grid {
+    margin: 0 auto;
+    padding: 0;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .about-card {
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    padding: 1.25rem;
-    background: rgba(0, 0, 0, 0.6);
-    animation: floaty 4s ease-in-out infinite;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease,
-      filter 0.3s ease,
-      opacity 0.3s ease;
-  }
-
-  @keyframes floaty {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-6px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
+    grid-template-columns: 1.6fr 1fr;
+    gap: 4rem;
   }
 
   @media (max-width: 768px) {
@@ -164,26 +125,23 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .info-box {
-      padding: 1.5rem 1.25rem;
-      box-shadow: 0 0 30px #e803b2;
+      padding: 2rem 1.5rem;
     }
 
     .about-title {
-      font-size: 2.4rem;
+      font-size: 2.1rem;
+      letter-spacing: 1px;
     }
 
     .about-subtitle {
       font-size: 1rem;
     }
 
-    .about-box h2 {
-      font-size: 1.4rem;
-    }
-
     .about-header {
-      margin-top: 7rem;
-      margin-bottom: 1.5rem;
-      padding: 0 1rem;
+      padding-top: 8rem;
+      padding-bottom: 3rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
 
     .about-box > p {
@@ -206,6 +164,29 @@ import Layout from "../layouts/Layout.astro";
     .about-card p {
       font-size: 0.9rem;
     }
+
+    .about-wrapper {
+      padding: 1.5rem 1.25rem;
+      margin: 0 2.25rem 6rem;
+    }
+
+    .about-flow {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 0 1rem;
+    }
+
+    .about-aside {
+      padding-left: 0;
+      border-left: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      padding-top: 2rem;
+    }
+
+    .about-main p {
+      text-align: left;
+      font-size: 0.85rem;
+    }
   }
 
   @media (max-width: 480px) {
@@ -220,13 +201,11 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .about-subtitle {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
     }
 
-    .about-box > p,
-    .about-card p,
-    .about-bottom p {
-      font-size: 0.9rem;
+    .about-main p {
+      font-size: 0.8rem;
     }
 
     .presentation-section {
@@ -237,12 +216,64 @@ import Layout from "../layouts/Layout.astro";
       padding: 1.25rem 1rem;
     }
 
-    .about-title {
-      font-size: 2rem;
+    .about-wrapper {
+      padding: 1.25rem 1rem;
+      margin: 0 1.75rem 5rem;
     }
+  }
 
-    .about-subtitle {
-      font-size: 0.9rem;
-    }
+  .about-main h2 {
+    font-size: 1.7rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .about-main h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .about-main p {
+    line-height: 1.65;
+    max-width: 640px;
+    font-size: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .about-aside {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .about-aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem 0;
+  }
+
+  .about-aside li {
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.5px;
+  }
+
+  .about-aside-highlight {
+    padding: 1.75rem;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+  }
+
+  .about-aside-highlight h4 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
 </style>

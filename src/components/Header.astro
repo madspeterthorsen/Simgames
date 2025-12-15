@@ -19,13 +19,15 @@ import Logo from "../assets/logo.png";
     <div class="menu-row">
       <div class="menu-links">
         <a href="/">Hjem</a>
-        <a href="/contact">Kontakt</a>
+        <a href="/booking">Booking</a>
         <a href="/events">Events</a>
         <a href="/booking">Booking</a>
+        <a href="/games">Games</a>
         <a href="/games">Games</a>
         <a href="/prices">Priser</a>
         <a href="/faq">FaQ</a>
         <a href="/about">Om os</a>
+        <a href="/contact">Kontakt</a>
       </div>
       <button class="close-btn" id="close-btn" type="button" aria-label="Luk menu">X</button>
     </div>
@@ -113,7 +115,6 @@ import Logo from "../assets/logo.png";
     transform: translateX(-50%) scale(1.12);
   }
 
-  /* BURGER */
   .burger {
     position: absolute;
     right: 4rem;
@@ -159,7 +160,6 @@ import Logo from "../assets/logo.png";
     transform: translateY(-9px) rotate(-45deg);
   }
 
-  /* MENU OVERLAY */
   .menu-panel {
     position: fixed;
     top: 0;
@@ -171,7 +171,7 @@ import Logo from "../assets/logo.png";
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 5rem 0 2rem 0; /* from top and a bit under links */
+    padding: 5rem 0 2rem 0;
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
@@ -259,7 +259,59 @@ import Logo from "../assets/logo.png";
   .close-btn:hover {
     transform: rotate(90deg) scale(1.15);
     opacity: 0.9;
-    color: #ff7bf5; /* pink hover color */
+    color: #ff7bf5;
+  }
+
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    z-index: 1000;
+    background: transparent;
+  }
+
+  @media (max-width: 768px) {
+    .site-header {
+      padding: 0.75rem 1rem;
+    }
+
+    .logo {
+      width: 56px;
+      top: 1rem;
+      margin-top: 0;
+    }
+
+    .burger {
+      right: 1.25rem;
+      margin-top: 0;
+      top: 50%;
+    }
+
+    .menu-panel {
+      padding: 4.5rem 1.5rem 1.5rem;
+      align-items: flex-start;
+    }
+
+    .menu-row {
+      padding: 0;
+      margin-right: 0;
+      width: 100%;
+      max-width: 100%;
+      justify-content: space-between;
+    }
+
+    .menu-links {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      padding-right: 0;
+    }
+
+    .menu-panel a {
+      font-size: 1.1rem;
+    }
   }
 
   @media (max-width: 768px) {
@@ -321,6 +373,11 @@ import Logo from "../assets/logo.png";
     .menu-panel a {
       font-size: 1.1rem;
     }
+
+    .close-btn {
+      position: absolute;
+      right: 4rem;
+    }
   }
 
   @media (min-width: 900px) {
@@ -375,7 +432,6 @@ import Logo from "../assets/logo.png";
         }
       });
 
-      // Close menu when clicking outside of menu-panel and burger
       document.addEventListener("click", (event) => {
         const clickedInsideMenu = menu.contains(event.target);
         const clickedBurger = burger.contains(event.target);

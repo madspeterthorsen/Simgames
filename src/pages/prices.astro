@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Pakker | Simgames">
@@ -98,24 +99,25 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .packages-hero {
-      max-width: 720px;
-      margin: 0 auto 3rem;
-      margin-top: 11.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: 12rem;
+      padding-bottom: 4rem;
+      text-align: center;
     }
 
     .packages-title {
-      font-size: clamp(2.6rem, 5vw, 3.6rem);
-      letter-spacing: none;
+      margin: 0 0 0.5rem 0;
+      font-size: 2.6rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      margin: 0 0 0.5rem;
-      text-align: center;
     }
 
     .packages-subtitle {
       margin: 0;
-      font-size: 1rem;
+      font-size: 1.25rem;
+      opacity: 0.9;
       line-height: 1.6;
-      text-align: center;
     }
 
     .packages-subtitle span {
@@ -130,10 +132,12 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .packages-heading {
-      font-size: 1.2rem;
-      letter-spacing: 0.18em;
+      margin-top: 6.5rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      font-size: 1.7rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      margin: 0 0 1.75rem;
     }
 
     .packages-grid {
@@ -146,15 +150,15 @@ import Layout from "../layouts/Layout.astro";
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 16px;
       padding: 1.7rem 1.5rem 1.4rem;
-      border: 2px solid white;
-      box-shadow: 0 0 50px rgba(232, 3, 178, 0.6);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.35);
       text-align: left;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       height: 100%;
       transform: translateY(0);
-      filter: drop-shadow(0 0 12px rgba(120, 0, 255, 0.4));
+      filter: none;
       transition:
         transform 0.3s ease,
         box-shadow 0.3s ease,
@@ -164,8 +168,8 @@ import Layout from "../layouts/Layout.astro";
     }
     .package-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 0 20px rgba(232, 3, 178, 0.45);
-      filter: drop-shadow(0 0 14px rgba(120, 0, 255, 0.45));
+      box-shadow: 0 0 55px rgba(255, 255, 255, 0.45);
+      filter: none;
     }
 
     .package-title {
@@ -215,10 +219,29 @@ import Layout from "../layouts/Layout.astro";
 
       .packages-grid {
         grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .package-card {
+        max-width: 360px;
+        width: 100%;
       }
 
       .packages-section {
         margin-top: 2.5rem;
+      }
+
+      .packages-hero {
+        padding-top: 8rem;
+        padding-bottom: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .packages-heading {
+        margin-top: 3.5rem;
+        font-size: 1.3rem;
+        letter-spacing: 1px;
       }
     }
 
@@ -228,8 +251,12 @@ import Layout from "../layouts/Layout.astro";
       }
 
       .packages-title {
-        font-size: 2.2rem;
-        letter-spacing: 0.18em;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+      }
+
+      .packages-subtitle {
+        font-size: 0.9rem;
       }
     }
 
@@ -245,4 +272,5 @@ import Layout from "../layouts/Layout.astro";
       }
     }
   </style>
+  <Footer />
 </Layout>

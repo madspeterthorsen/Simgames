@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
 ---
 <Layout>
 
@@ -26,38 +27,45 @@ import Layout from "../layouts/Layout.astro";
           <button class="toggle-btn">+</button>
         </div>
         <div class="info-content">
-          <p>Vi får jer hurtigt i gang og sætter stemningen fra start. I bliver introduceret til spillene, challenges og konkurrencer, så alle kan være med – uanset niveau. Fokus er på tempo, grin og fælles oplevelser, ikke teknik. I møder bare op, resten tager vi os af.</p>
+          <p>
+            Kickstarten er jeres event-start med fuld energi. Vi sørger for, at alle hurtigt er med – uanset erfaring. I bliver introduceret til spillene, challenges og konkurrencer, så stemningen er sat fra første slag. Fokus er på fællesskab, tempo og grin – ikke teknik.
+            </p>
         </div>
       </div>
 
       <div class="info-item">
         <div class="info-header">
-          <span>Det får i med i pakken</span>
+          <span>Det får i med i event-pakken</span>
           <button class="toggle-btn">+</button>
         </div>
         <div class="info-content">
-          <p>Vi tilbyder eksklusive båse til kun 300 kr.<br>
-            Prisen gælder for hele boksen inkl. udstyr – ikke per person.<br>I får adgang til fuldt udstyrede minigames, der sætter rammen for konkurrence, grin og god stemning.<br>Om I går all-in på challenges eller bare er der for hyggen, sørger vi for en oplevelse med højt tempo, professionel afvikling og et glimt i øjet.</p>
+          <p>
+            Når I booker et event hos The Clubhouse, får I jeres egen bås til kun 300 kr. pr. bås – ikke pr. person. Prisen inkluderer udstyr, minigames og adgang til challenges, der skaber konkurrence, grin og fælles oplevelser. Uanset om I spiller for sjov eller går all-in, sørger vi for en professionel og velafviklet event.
+            </p>
         </div>
       </div>
 
       <div class="info-item">
         <div class="info-header">
-          <span>Brug for sparring? Vi står klar</span>
+          <span>Brug for sparring? Vi hjælper med jeres event</span>
           <button class="toggle-btn">+</button>
         </div>
         <div class="info-content">
-          <p>Har I spørgsmål til spil, opsætning eller muligheder, hjælper vi jer hele vejen.<br> Vores team guider jer, deler tips og sikrer, at oplevelsen spiller fra start til slut.<br>Uanset om I vil finpudse planen eller bare høre, hvad der passer bedst til jeres event, så tager vi gerne en snak.</p>
+          <p>
+            Planlægger I et event og er i tvivl om setup, spil eller forløb? Vi hjælper gerne med sparring, idéer og anbefalinger, så jeres arrangement passer perfekt til gruppen. Vores team står klar før, under og efter – så I kan fokusere på oplevelsen.
+            </p>
         </div>
       </div>
 
       <div class="info-item">
         <div class="info-header">
-          <span>Praktisk info før vi går i gang</span>
+          <span>Praktisk info til events</span>
           <button class="toggle-btn">+</button>
         </div>
         <div class="info-content">
-          <p>Kom som I er – vi tager jer trygt igennem oplevelsen.<br> Spillene er designet til små grupper, og vi anbefaler op til 4 personer pr. bås for bedst flow og mest sjov.<br> Uanset om I går all-in på konkurrencer eller bare vil hygge jer, sørger vi for, at alt spiller, så I kan fokusere på stemningen og oplevelsen.</p>
+          <p>
+            Events er velegnede til små grupper, og vi anbefaler op til 4 personer pr. bås for det bedste flow. I møder bare op – vi guider jer hele vejen og sørger for, at alt spiller. Uanset om det er firmaevent, fødselsdag eller venneaften, er rammerne sat for en aften med høj energi og god stemning.
+            </p>
         </div>
       </div>
 
@@ -157,6 +165,7 @@ import Layout from "../layouts/Layout.astro";
     });
   </script>
 
+  <Footer />
 </Layout>
 
 
@@ -357,23 +366,25 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .events-header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 12rem;
+    padding-bottom: 4rem;
     text-align: center;
-    margin-top: 11.5rem;
-    margin-bottom: 2rem;
   }
 
   .events-title {
-    font-size: 3.2rem;
-    letter-spacing: 0.1em;
-    margin: 0;
+    margin: 0 0 0.5rem 0;
+    font-size: 2.6rem;
+    letter-spacing: 2px;
     color: white;
     text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
   }
 
   .events-subtitle {
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
-    opacity: 0.85;
+    margin: 0;
+    font-size: 1.25rem;
+    opacity: 0.9;
     color: white;
   }
 
@@ -476,6 +487,22 @@ import Layout from "../layouts/Layout.astro";
       font-size: 0.9rem;
       line-height: 1.5;
     }
+
+    .events-header {
+      padding-top: 8rem;
+      padding-bottom: 3rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .events-title {
+      font-size: 2.1rem;
+      letter-spacing: 1px;
+    }
+
+    .events-subtitle {
+      font-size: 1rem;
+    }
   }
 
   @media (max-width: 480px) {
@@ -509,6 +536,18 @@ import Layout from "../layouts/Layout.astro";
 
     .event-date {
       font-size: 0.8rem;
+    }
+
+    .events-header {
+      padding-top: 7rem;
+    }
+
+    .events-title {
+      font-size: 1.8rem;
+    }
+
+    .events-subtitle {
+      font-size: 0.9rem;
     }
   }
 </style>
