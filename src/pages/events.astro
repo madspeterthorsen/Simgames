@@ -2,14 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
 ---
-<Layout>
 
-  <section class="events-header">
+<Layout>
+  <section class="events-header reveal">
     <h1 class="events-title">EVENTS</h1>
     <p class="events-subtitle">fra pre-party til skræddersyede events</p>
   </section>
 
-  <section class="presentation-section">
+  <section class="presentation-section reveal">
     <div class="info-box">
       <div class="calendar-header">
         <div class="calendar-icon">
@@ -19,7 +19,7 @@ import Footer from "../components/Footer.astro";
           <span class="calendar-text">Har du spørgsmål?</span>
         </div>
       </div>
-      <br>
+      <br />
 
       <div class="info-item">
         <div class="info-header">
@@ -28,8 +28,9 @@ import Footer from "../components/Footer.astro";
         </div>
         <div class="info-content">
           <p>
-            Kickstarten er jeres event-start med fuld energi. Vi sørger for, at alle hurtigt er med – uanset erfaring. I bliver introduceret til spillene, challenges og konkurrencer, så stemningen er sat fra første slag. Fokus er på fællesskab, tempo og grin – ikke teknik.
-            </p>
+            Kickstarten er jeres event-start med fuld energi. Vi sørger for, at alle hurtigt er med – uanset erfaring. I bliver introduceret til spillene, challenges og konkurrencer, så stemningen er sat fra første slag. Fokus er på fællesskab, tempo
+            og grin – ikke teknik.
+          </p>
         </div>
       </div>
 
@@ -40,8 +41,9 @@ import Footer from "../components/Footer.astro";
         </div>
         <div class="info-content">
           <p>
-            Når I booker et event hos The Clubhouse, får I jeres egen bås til kun 300 kr. pr. bås – ikke pr. person. Prisen inkluderer udstyr, minigames og adgang til challenges, der skaber konkurrence, grin og fælles oplevelser. Uanset om I spiller for sjov eller går all-in, sørger vi for en professionel og velafviklet event.
-            </p>
+            Når I booker et event hos The Clubhouse, får I jeres egen bås til kun 300 kr. pr. bås – ikke pr. person. Prisen inkluderer udstyr, minigames og adgang til challenges, der skaber konkurrence, grin og fælles oplevelser. Uanset om I spiller
+            for sjov eller går all-in, sørger vi for en professionel og velafviklet event.
+          </p>
         </div>
       </div>
 
@@ -52,8 +54,9 @@ import Footer from "../components/Footer.astro";
         </div>
         <div class="info-content">
           <p>
-            Planlægger I et event og er i tvivl om setup, spil eller forløb? Vi hjælper gerne med sparring, idéer og anbefalinger, så jeres arrangement passer perfekt til gruppen. Vores team står klar før, under og efter – så I kan fokusere på oplevelsen.
-            </p>
+            Planlægger I et event og er i tvivl om setup, spil eller forløb? Vi hjælper gerne med sparring, idéer og anbefalinger, så jeres arrangement passer perfekt til gruppen. Vores team står klar før, under og efter – så I kan fokusere på
+            oplevelsen.
+          </p>
         </div>
       </div>
 
@@ -64,26 +67,23 @@ import Footer from "../components/Footer.astro";
         </div>
         <div class="info-content">
           <p>
-            Events er velegnede til små grupper, og vi anbefaler op til 4 personer pr. bås for det bedste flow. I møder bare op – vi guider jer hele vejen og sørger for, at alt spiller. Uanset om det er firmaevent, fødselsdag eller venneaften, er rammerne sat for en aften med høj energi og god stemning.
-            </p>
+            Events er velegnede til små grupper, og vi anbefaler op til 4 personer pr. bås for det bedste flow. I møder bare op – vi guider jer hele vejen og sørger for, at alt spiller. Uanset om det er firmaevent, fødselsdag eller venneaften, er
+            rammerne sat for en aften med høj energi og god stemning.
+          </p>
         </div>
       </div>
-
     </div>
   </section>
 
-  <section class="calendar-section">
+  <section class="calendar-section reveal">
     <div class="calendar-box">
-
       <div class="calendar-header">
         <div class="calendar-icon">
           <img src="/calender.webp" alt="Kalender" />
         </div>
         <div class="calendar-header-text">
           <span class="calendar-text">Kommende events</span>
-          <a href="https://www.instagram.com/simgolf/" target="_blank" class="insta-link">
-            Se mere på Instagram →
-          </a>
+          <a href="https://www.instagram.com/simgolf/" target="_blank" class="insta-link"> Se mere på Instagram → </a>
         </div>
       </div>
 
@@ -128,10 +128,8 @@ import Footer from "../components/Footer.astro";
           <div class="event-title">Påske Challenge</div>
         </div>
       </div>
-
     </div>
   </section>
-
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -168,7 +166,6 @@ import Footer from "../components/Footer.astro";
   <Footer />
 </Layout>
 
-
 <style>
   *,
   *::before,
@@ -202,7 +199,7 @@ import Footer from "../components/Footer.astro";
     background-color: rgba(0, 0, 0, 0.85);
     border-radius: 15px;
     padding: 2rem 2.5rem;
-  
+
     border: 2px solid white;
     box-shadow: 0 0 50px #e803b2;
     max-width: 900px;
@@ -225,7 +222,6 @@ import Footer from "../components/Footer.astro";
   .calendar-header-text {
     display: flex;
     flex-direction: column;
-  
   }
 
   .insta-link {

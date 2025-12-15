@@ -4,17 +4,9 @@ import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
-
   <!-- FULLSCREEN VIDEO -->
-  <section class="hero-video">
-    <video
-      class="hero-video-el"
-      src="/videos/testvideo.MOV"
-      autoplay
-      muted
-      loop
-      playsinline
-    ></video>
+  <section class="hero-video reveal">
+    <video class="hero-video-el" src="/videos/testvideo.MOV" autoplay muted loop playsinline></video>
 
     <div class="hero-overlay">
       <h1>VIDEO AF OS DER SPILLER</h1>
@@ -22,19 +14,18 @@ import Footer from "../components/Footer.astro";
   </section>
 
   <!-- FAQ HEADER -->
-  <section class="faq-header">
+  <section class="faq-header reveal">
     <h1>FAQ</h1>
     <h2>alt du skal vide om Simgames</h2>
   </section>
 
   <!-- FAQ CONTENT -->
-  <section class="presentation-section">
-    <div class="info-box">
-
+  <section class="presentation-section reveal">
+    <div class="info-box reveal">
       <h2>Ofte stillede spørgsmål</h2>
 
       <!-- FAQ ITEM -->
-      <div class="info-item">
+      <div class="info-item reveal">
         <div class="info-header">
           <span>Hvad er Simgames?</span>
           <button class="toggle-btn">+</button>
@@ -47,75 +38,63 @@ import Footer from "../components/Footer.astro";
         </div>
       </div>
 
-      <div class="info-item">
+      <div class="info-item reveal">
         <div class="info-header">
           <span>Skal man kunne spille golf i forvejen?</span>
           <button class="toggle-btn">+</button>
         </div>
         <div class="info-content">
-          <p>
-            Nej! Simgames er designet til både begyndere og øvede. Systemet hjælper jer med at komme i gang, og personalet kan altid give en hurtig intro til slag, køller og de forskellige spil.
-          </p>
+          <p>Nej! Simgames er designet til både begyndere og øvede. Systemet hjælper jer med at komme i gang, og personalet kan altid give en hurtig intro til slag, køller og de forskellige spil.</p>
         </div>
       </div>
 
-      <div class="info-item">
+      <div class="info-item reveal">
         <div class="info-header">
           <span>Hvor mange kan vi være pr. simulator?</span>
           <button class="toggle-btn">+</button>
         </div>
         <div class="info-content">
-          <p>
-            Som udgangspunkt anbefaler vi 4–6 personer pr. simulator for den bedste oplevelse.
-          </p>
+          <p>Som udgangspunkt anbefaler vi 4–6 personer pr. simulator for den bedste oplevelse.</p>
         </div>
       </div>
 
-      <div class="info-item">
+      <div class="info-item reveal">
         <div class="info-header">
           <span>Hvordan fungerer pakkerne med alkohol og Simgames?</span>
           <button class="toggle-btn">+</button>
         </div>
         <div class="info-content">
-          <p>
-            Vores Simgames-pakker kombinerer spil på simulatoren med drikkepakker, så I får en samlet oplevelse.
-          </p>
+          <p>Vores Simgames-pakker kombinerer spil på simulatoren med drikkepakker, så I får en samlet oplevelse.</p>
         </div>
       </div>
 
-      <div class="info-item">
+      <div class="info-item reveal">
         <div class="info-header">
           <span>Kan vi tilpasse gamemodes til vores event?</span>
           <button class="toggle-btn">+</button>
         </div>
         <div class="info-content">
-          <p>
-            Ja, vi kan sammensætte et program, der passer til jer og jeres arrangement.
-          </p>
+          <p>Ja, vi kan sammensætte et program, der passer til jer og jeres arrangement.</p>
         </div>
       </div>
 
-      <div class="info-item">
+      <div class="info-item reveal">
         <div class="info-header">
           <span>Hvordan booker vi Simgames?</span>
           <button class="toggle-btn">+</button>
         </div>
         <div class="info-content">
-          <p>
-            Booking foregår via bookingsystemet på hjemmesiden.
-          </p>
+          <p>Booking foregår via bookingsystemet på hjemmesiden.</p>
         </div>
       </div>
 
-      <div class="info-item">
+      <div class="info-item reveal">
         <div class="info-header">
           <span>Hvad skal vi have med – og hvad sørger I for?</span>
           <button class="toggle-btn">+</button>
         </div>
         <div class="info-content">
-          <p>
-            I skal bare møde op i behageligt tøj. Køller, bolde og teknikken står vi for.
-          </p>
+          <p>I skal bare møde op i behageligt tøj. Køller, bolde og teknikken står vi for.</p>
         </div>
       </div>
 
@@ -125,12 +104,9 @@ import Footer from "../components/Footer.astro";
           <button class="toggle-btn">+</button>
         </div>
         <div class="info-content">
-          <p>
-            Ja, Simgames er oplagt som pre-party eller del af et større arrangement.
-          </p>
+          <p>Ja, Simgames er oplagt som pre-party eller del af et større arrangement.</p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -141,7 +117,7 @@ import Footer from "../components/Footer.astro";
         const item = btn.closest(".info-item");
         const isOpen = item.classList.contains("active");
 
-        document.querySelectorAll(".info-item").forEach(i => {
+        document.querySelectorAll(".info-item").forEach((i) => {
           i.classList.remove("active");
           i.querySelector(".toggle-btn").textContent = "+";
         });
@@ -207,12 +183,12 @@ import Footer from "../components/Footer.astro";
 
     .faq-header h1 {
       font-size: 2.6rem;
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
 
     .faq-header h2 {
       font-size: 1.2rem;
-      opacity: .8;
+      opacity: 0.8;
     }
 
     /* FAQ */
@@ -225,16 +201,18 @@ import Footer from "../components/Footer.astro";
     .info-box {
       max-width: 900px;
       width: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
       border: 2px solid white;
       border-radius: 16px;
       padding: 2rem;
       box-shadow: 0 0 50px #e803b2;
       color: white;
+      animation: floaty 4s ease-in-out infinite;
+      transform-origin: center;
     }
 
     .info-item {
-      border-top: 1px solid rgba(255,255,255,0.3);
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
       padding: 1rem 0;
     }
 
@@ -254,12 +232,24 @@ import Footer from "../components/Footer.astro";
 
     .info-content {
       display: none;
-      margin-top: .75rem;
+      margin-top: 0.75rem;
       line-height: 1.5;
     }
 
     .info-item.active .info-content {
       display: block;
+    }
+
+    @keyframes floaty {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-14px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
     }
 
     @media (max-width: 820px) {

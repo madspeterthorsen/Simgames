@@ -34,8 +34,8 @@ try {
 ---
 
 <Layout>
-  <main class="games-page">
-    <section class="games-header">
+  <main class="games-page reveal">
+    <section class="games-header reveal">
       <h1 class="games-title">GAMES</h1>
       <p class="games-subtitle">In association with Trackman</p>
       <div class="games-icon">
@@ -43,7 +43,7 @@ try {
       </div>
     </section>
 
-    <section class="games-grid">
+    <section class="games-grid reveal">
       {
         fetchError ? (
           <p class="games-empty">{fetchError}</p>
@@ -64,7 +64,6 @@ try {
     </section>
   </main>
   <Footer />
-
 
   <style>
     *,
@@ -226,5 +225,4 @@ try {
       }
     }
   </style>
-
 </Layout>

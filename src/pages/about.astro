@@ -4,44 +4,31 @@ import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
-  <section class="about-header">
+  <section class="about-header reveal">
     <h1 class="about-title">OM SIMGAMES</h1>
     <p class="about-subtitle">teamet bag indoor golf & simgames-universet</p>
   </section>
 
-  <section class="about-wrapper">
+  <section class="about-wrapper reveal">
     <div class="about-flow">
       <div class="about-main">
         <h2>Simgolf & Simgames – hvem står bag?</h2>
         <p>
-          Simgolf er virksomheden bag centrene, simulatorerne og værtskabet – og
-          Simgames er vores legende spilunivers bygget ovenpå det. Sammen skaber
-          vi et sted, hvor du både kan træne seriøs golf og kaste dig ud i
-          minigames, konkurrencer og pre-parties med crewet.
+          Simgolf er virksomheden bag centrene, simulatorerne og værtskabet – og Simgames er vores legende spilunivers bygget ovenpå det. Sammen skaber vi et sted, hvor du både kan træne seriøs golf og kaste dig ud i minigames, konkurrencer og
+          pre-parties med crewet.
         </p>
 
         <h3>Simgolf – virksomheden bag</h3>
         <p>
-          Simgolf driver moderne indendørs golfcentre med fokus på kvalitet,
-          teknologi og gode rammer. Med Trackman-simulatorer, gennemtænkte
-          faciliteter og et værtskab, der føles afslappet og imødekommende,
-          er vi base for både nye spillere, øvede og hardcore golfere.
+          Simgolf driver moderne indendørs golfcentre med fokus på kvalitet, teknologi og gode rammer. Med Trackman-simulatorer, gennemtænkte faciliteter og et værtskab, der føles afslappet og imødekommende, er vi base for både nye spillere, øvede og
+          hardcore golfere.
         </p>
 
         <h3>Hvad er Simgames?</h3>
-        <p>
-          Simgames er vores samling af minigames på simulatoren – et
-          space-inspireret univers, hvor golf bliver til spil, challenges
-          og arcade vibes. I spiller på storskærm, rammer targets og jagter
-          highscores i forskellige gamemodes.
-        </p>
+        <p>Simgames er vores samling af minigames på simulatoren – et space-inspireret univers, hvor golf bliver til spil, challenges og arcade vibes. I spiller på storskærm, rammer targets og jagter highscores i forskellige gamemodes.</p>
 
         <h3>Hvorfor vi har skabt Simgames</h3>
-        <p>
-          Vi ville gøre simulator-golf mere tilgængeligt. Mindre fokus på
-          handicap og perfektion – mere fokus på grin, tempo og fælles
-          oplevelser, uanset niveau.
-        </p>
+        <p>Vi ville gøre simulator-golf mere tilgængeligt. Mindre fokus på handicap og perfektion – mere fokus på grin, tempo og fælles oplevelser, uanset niveau.</p>
       </div>
 
       <aside class="about-aside">
@@ -55,10 +42,7 @@ import Footer from "../components/Footer.astro";
 
         <div class="about-aside-highlight">
           <h4>Kort sagt</h4>
-          <p>
-            Simgolf er rammen – Simgames er universet. Sammen gør vi indoor
-            golf til en social, legende og energifyldt oplevelse.
-          </p>
+          <p>Simgolf er rammen – Simgames er universet. Sammen gør vi indoor golf til en social, legende og energifyldt oplevelse.</p>
         </div>
       </aside>
     </div>
@@ -104,6 +88,8 @@ import Footer from "../components/Footer.astro";
     border-radius: 22px;
     border: 3px solid rgba(255, 255, 255, 0.35);
     box-shadow: 0 0 50px rgba(255, 255, 255, 0.15);
+    animation: floaty 4s ease-in-out infinite;
+    transform-origin: center;
   }
 
   .about-flow {
@@ -113,6 +99,18 @@ import Footer from "../components/Footer.astro";
     display: grid;
     grid-template-columns: 1.6fr 1fr;
     gap: 4rem;
+  }
+
+  @keyframes floaty {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
   }
 
   @media (max-width: 768px) {
