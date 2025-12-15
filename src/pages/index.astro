@@ -234,10 +234,7 @@ const games: Game[] = Array.isArray(data) ? data : [];
     }
 
     .player-slide-wrapper {
-      width: 100%;
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
+      overflow: hidden; 
     }
 
     .player-track {
@@ -494,13 +491,12 @@ const games: Game[] = Array.isArray(data) ? data : [];
       }
 
       .player-carousel {
-        grid-template-columns: 1fr;
-        padding: 1.5rem 1.25rem;
-        gap: 1rem;
-        margin-left: 2.5rem;
-        margin-right: 2.5rem;
-        box-sizing: border-box;
-      }
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+  }
 
       .player-slide {
         grid-template-columns: 1fr;
