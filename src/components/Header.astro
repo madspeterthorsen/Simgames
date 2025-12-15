@@ -18,14 +18,14 @@ import Logo from "../assets/logo.png";
   <nav class="menu-panel" id="menu-panel" aria-hidden="true">
     <div class="menu-row">
       <div class="menu-links">
-        <a href="/">Hjem</a>
-        <a href="/contact">Kontakt</a>
+        <a href="/">Hjem</a>  
+        <a href="/booking">Booking</a> 
         <a href="/events">Events</a>
-        <a href="/booking">Booking</a>
-        <a href="/games">Vores spil</a>
+        <a href="/games">Games</a>
         <a href="/prices">Priser</a>
-        <a href="/faq">FaQ</a>
+        <a href="/faq">FaQ</a> 
         <a href="/about">Om os</a>
+        <a href="/contact">Kontakt</a>
       </div>
       <button class="close-btn" id="close-btn" type="button" aria-label="Luk menu">X</button>
     </div>
@@ -33,7 +33,8 @@ import Logo from "../assets/logo.png";
 </header>
 
 <style>
-  .site-header {
+
+.site-header {
     position: fixed;
     top: 0;
     left: 0;
@@ -41,7 +42,8 @@ import Logo from "../assets/logo.png";
     padding: 0.9rem 1.5rem;
     z-index: 1000;
     background: transparent;
-  }
+}
+  
   @media (max-width: 768px) {
     .site-header {
       padding: 0.75rem 1rem;
@@ -113,7 +115,6 @@ import Logo from "../assets/logo.png";
     transform: translateX(-50%) scale(1.12);
   }
 
-  /* BURGER */
   .burger {
     position: absolute;
     right: 4rem;
@@ -159,7 +160,6 @@ import Logo from "../assets/logo.png";
     transform: translateY(-9px) rotate(-45deg);
   }
 
-  /* MENU OVERLAY */
   .menu-panel {
     position: fixed;
     top: 0;
@@ -259,7 +259,7 @@ import Logo from "../assets/logo.png";
   .close-btn:hover {
     transform: rotate(90deg) scale(1.15);
     opacity: 0.9;
-    color: #ff7bf5; /* pink hover color */
+    color: #ff7bf5; 
   }
 
   @media (max-width: 768px) {
@@ -374,8 +374,6 @@ import Logo from "../assets/logo.png";
           closeMenu();
         }
       });
-
-      // Close menu when clicking outside of menu-panel and burger
       document.addEventListener("click", (event) => {
         const clickedInsideMenu = menu.contains(event.target);
         const clickedBurger = burger.contains(event.target);
