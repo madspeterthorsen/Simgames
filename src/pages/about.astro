@@ -180,6 +180,24 @@ import Layout from "../layouts/Layout.astro";
       font-size: 1.4rem;
     }
 
+    .about-header {
+      margin-top: 7rem;
+      margin-bottom: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .about-box > p {
+      font-size: 0.95rem;
+    }
+
+    .about-card {
+      padding: 1rem;
+    }
+
+    .about-bottom p {
+      font-size: 0.95rem;
+    }
+
     .about-grid {
       grid-template-columns: 1fr;
       gap: 1.25rem;
@@ -191,6 +209,26 @@ import Layout from "../layouts/Layout.astro";
   }
 
   @media (max-width: 480px) {
+    .about-header {
+      margin-top: 5rem;
+      margin-bottom: 1.25rem;
+      padding: 0 0.75rem;
+    }
+
+    .about-title {
+      font-size: 1.8rem;
+    }
+
+    .about-subtitle {
+      font-size: 0.85rem;
+    }
+
+    .about-box > p,
+    .about-card p,
+    .about-bottom p {
+      font-size: 0.9rem;
+    }
+
     .presentation-section {
       padding: 1.25rem 0.75rem;
     }

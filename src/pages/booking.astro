@@ -1,0 +1,226 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <style>
+    :root {
+      --accent: #00eaff;
+    }
+
+    p {
+      text-align: left;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: 12rem;
+      padding-bottom: 4rem;
+      text-align: center;
+    }
+
+    .hero-text h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2.6rem;
+      letter-spacing: 2px;
+    }
+
+    .hero-text h2 {
+      margin: 0;
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+
+    /* SECTION TITLE */
+    .section-title {
+      margin-top: 3.5rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      font-size: 1.7rem;
+      letter-spacing: 2px;
+    }
+
+    /* BOOKING CONTENT */
+    .booking-section {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
+      line-height: 1.6;
+    }
+
+    .booking-left p + p {
+      margin-top: 0.8rem;
+    }
+
+    .booking-right {
+      padding: 1.5rem;
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .booking-right h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .booking-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .booking-list li::before {
+      content: "- ";
+    }
+
+    .booking-list li + li {
+      margin-top: 0.4rem;
+    }
+
+    /* BOOK BUTTON */
+    .book-btn {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 1.75rem;
+    }
+
+    .book-btn img {
+      width: 180px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.25s ease;
+      image-rendering: pixelated;
+    }
+
+    .book-btn img:hover {
+      content: url("/bookhover.png");
+      transform: scale(1.02);
+    }
+
+    .book-btn {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .book-btn img {
+      width: 150px;
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 4rem;
+      height: 80px;
+      background: url("/footer.png");
+      background-size: cover;
+    }
+
+    /* TABLET / MOBILE */
+    @media (max-width: 820px) {
+      .hero {
+        padding-top: 8rem;
+        padding-bottom: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .hero-text h1 {
+        font-size: 2.1rem;
+        letter-spacing: 1px;
+      }
+
+      .hero-text h2 {
+        font-size: 1rem;
+      }
+
+      .booking-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+      }
+
+      .booking-right {
+        padding: 1.25rem;
+      }
+    }
+
+    /* SMALL MOBILE */
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 7rem;
+      }
+
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-text h2 {
+        font-size: 0.9rem;
+      }
+
+      .booking-right h3 {
+        font-size: 1.05rem;
+      }
+
+      .book-btn {
+        justify-content: center;
+      }
+
+      .book-btn a {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>BOOK DIN TID</h1>
+      <h2>Simulatorgolf, minigames og klubstemning klar til booking.</h2>
+    </div>
+  </section>
+
+  <h2 class="section-title">SÅDAN BOOKER DU</h2>
+
+  <section class="booking-section">
+    <div class="booking-left">
+      <p>Du booker din tid til The Clubhouse gennem Simgolfs booking-system. Her vælger du tidspunkt, antal spillere og hvor længe I vil spille.</p>
+      <p>Når I ankommer, hjælper vi jer i gang med simulatoren, minigames og eventuelle pakker. I skal bare møde op, tage vennerne med og være klar på en aften med grin, konkurrence og en afslappet klubstemning.</p>
+      <p>Klik på knappen herunder for at gå direkte til booking. Bookingen sker på Simgolfs egen side, men oplevelsen er den samme: én samlet aften med golf, games og gode vibes.</p>
+
+      <div class="book-btn">
+        <a href="https://www.simgolf.dk/booking" target="_blank" rel="noreferrer"><img src="/public/book.png" alt="Book knap" /></a>
+      </div>
+    </div>
+
+    <div class="booking-right">
+      <h3>Praktisk info</h3>
+      <ul class="booking-list">
+        <li>Vælg tid og simulator direkte i bookingen</li>
+        <li>Velegnet til mindre grupper, dates eller venneaftener</li>
+        <li>Mulighed for drikkevarer og hygge på stedet</li>
+        <li>TrackMan-minigames og challenges er klar til jer</li>
+      </ul>
+
+      <h3>Tip til en god aften</h3>
+      <ul class="booking-list">
+        <li>Kom gerne 10–15 minutter før, så I er klar til første slag</li>
+        <li>Overvej på forhånd hvilke minigames I vil prøve</li>
+        <li>Aftal om I spiller for sjov eller om der er noget på spil</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="footer"></div>
+</Layout>
