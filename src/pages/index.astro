@@ -580,7 +580,7 @@ min-height: 480px;
           musik og minigames der holder tempoet højt.
         </p>
         <div class="koncept-btn">
-          <img src="/koncept.png" alt="Koncept" />
+          <a href="/faq"><img src="/koncept.png" alt="Koncept" /> </a> 
         </div>
       </div>
     </div>
@@ -633,7 +633,7 @@ min-height: 480px;
                 <li>Har ét godt slag per aften</li>
               </ul>
               <div class="book-btn">
-                <img src="/book.png" alt="Book Now" />
+                <a href="/booking"> <img src="/book.png" alt="Book Now" /> </a>
               </div>
             </div>
           </div>
@@ -651,7 +651,7 @@ min-height: 480px;
                 <li>“Et slag mere – for hyggen!”</li>
               </ul>
               <div class="book-btn">
-                <img src="/book.png" alt="Book Now" />
+                <a href="/booking"> <img src="/book.png" alt="Book Now" /> </a>
               </div>
             </div>
           </div>
@@ -669,7 +669,7 @@ min-height: 480px;
                 <li>Stille hvis du slår længere</li>
               </ul>
               <div class="book-btn">
-                <img src="/book.png" alt="Book Now" />
+                <a href="/booking"> <img src="/book.png" alt="Book Now" /> </a>
               </div>
             </div>
           </div>
@@ -687,7 +687,7 @@ min-height: 480px;
                 <li>Har uheld i verdensklasse</li>
               </ul>
               <div class="book-btn">
-                <img src="/book.png" alt="Book Now" />
+                <a href="/booking"> <img src="/book.png" alt="Book Now" /> </a>
               </div>
             </div>
           </div>
@@ -705,7 +705,7 @@ min-height: 480px;
                 <li>Bedste slag – ved et uheld</li><br />
               </ul>
               <div class="book-btn">
-                <img src="/book.png" alt="Book Now" />
+                <a href="/booking"> <img src="/book.png" alt="Book Now" /> </a>
               </div>
             </div>
           </div>
@@ -723,7 +723,7 @@ min-height: 480px;
                 <li>Vinder uden at prøve</li>
               </ul>
               <div class="book-btn">
-                <img src="/book.png" alt="Book Now" />
+                <a href="/booking"> <img src="/book.png" alt="Book Now" /> </a>
               </div>
             </div>
           </div>
@@ -738,46 +738,82 @@ min-height: 480px;
 
     <!-- SCRIPTS -->
     <script is:inline>
-      // --- Games carousel (simple) ---
+      // --- Games carousel (circular "wheel") ---
       (function () {
         const track = document.getElementById("carouselTrack");
         if (!track) return;
-        const cards = Array.from(track.querySelectorAll(".card"));
         const prevBtn = document.getElementById("arrowLeft");
         const nextBtn = document.getElementById("arrowRight");
-        const gap = 20;
-        let idx = 0;
+        const gap = 20; // samme som i CSS
+        let isAnimating = false;
 
-        function update() {
-          if (!cards.length) return;
-          const cardWidth = cards[0].offsetWidth + gap;
-          const maxIndex = Math.max(0, cards.length - 3);
-          idx = Math.min(Math.max(0, idx), maxIndex);
-          track.style.transform = `translate3d(${-idx * cardWidth}px, 0, 0)`;
+        function getStepWidth() {
+          const firstCard = track.querySelector(".card");
+          if (!firstCard) return 0;
+          const rect = firstCard.getBoundingClientRect();
+          return rect.width + gap;
         }
 
-        prevBtn &&
-          (prevBtn.onclick = () => {
-            idx = Math.max(0, idx - 1);
-            update();
-          });
-        nextBtn &&
-          (nextBtn.onclick = () => {
-            idx = Math.min(idx + 1, Math.max(0, cards.length - 3));
-            update();
-          });
+        function slideNext() {
+          if (isAnimating) return;
+          const step = getStepWidth();
+          if (!step) return;
+
+          isAnimating = true;
+          track.style.transition = "transform 0.35s ease";
+          track.style.transform = `translate3d(${-step}px, 0, 0)`;
+
+          const handle = () => {
+            // flyt første kort bagerst og nulstil
+            track.style.transition = "none";
+            const first = track.firstElementChild;
+            if (first) track.appendChild(first);
+            track.style.transform = "translate3d(0, 0, 0)";
+
+            // force reflow før vi aktiverer transition igen
+            void track.offsetHeight;
+            track.style.transition = "transform 0.35s ease";
+
+            isAnimating = false;
+            track.removeEventListener("transitionend", handle);
+          };
+
+          track.addEventListener("transitionend", handle);
+        }
+
+        function slidePrev() {
+          if (isAnimating) return;
+          const step = getStepWidth();
+          if (!step) return;
+
+          isAnimating = true;
+
+          // flyt sidste kort forrest uden animation
+          track.style.transition = "none";
+          const last = track.lastElementChild;
+          if (last) track.insertBefore(last, track.firstElementChild);
+          track.style.transform = `translate3d(${-step}px, 0, 0)`;
+
+          // force reflow og animér tilbage til 0
+          void track.offsetHeight;
+          track.style.transition = "transform 0.35s ease";
+          track.style.transform = "translate3d(0, 0, 0)";
+
+          const handle = () => {
+            isAnimating = false;
+            track.removeEventListener("transitionend", handle);
+          };
+
+          track.addEventListener("transitionend", handle);
+        }
+
+        prevBtn && (prevBtn.onclick = slidePrev);
+        nextBtn && (nextBtn.onclick = slideNext);
+
         document.addEventListener("keydown", (e) => {
-          if (e.key === "ArrowLeft") {
-            idx = Math.max(0, idx - 1);
-            update();
-          }
-          if (e.key === "ArrowRight") {
-            idx = Math.min(idx + 1, Math.max(0, cards.length - 3));
-            update();
-          }
+          if (e.key === "ArrowLeft") slidePrev();
+          if (e.key === "ArrowRight") slideNext();
         });
-        window.addEventListener("resize", update);
-        update();
       })();
 
       // --- Player carousel (stable pixel-based) ---
@@ -819,62 +855,3 @@ min-height: 480px;
 
 
 
-<script is:inline>
-  (function(){
-    const track = document.getElementById("carouselTrack");
-    if(!track) return;
-    const cards = Array.from(track.querySelectorAll(".card"));
-    const prevBtn = document.getElementById("arrowLeft");
-    const nextBtn = document.getElementById("arrowRight");
-    const gap = 20;
-    let idx = 0;
-
-    function update() {
-      if(!cards.length) return;
-      const cardWidth = cards[0].offsetWidth + gap;
-      const maxIndex = Math.max(0, cards.length - 3);
-      idx = Math.min(Math.max(0, idx), maxIndex);
-      track.style.transform = `translate3d(${-idx * cardWidth}px, 0, 0)`;
-    }
-
-    prevBtn && (prevBtn.onclick = () => { idx = Math.max(0, idx - 1); update(); });
-    nextBtn && (nextBtn.onclick = () => { idx = Math.min(idx + 1, Math.max(0, cards.length - 3)); update(); });
-    document.addEventListener('keydown', e => {
-      if(e.key === 'ArrowLeft'){ idx = Math.max(0, idx - 1); update(); }
-      if(e.key === 'ArrowRight'){ idx = Math.min(idx + 1, Math.max(0, cards.length - 3)); update(); }
-    });
-    window.addEventListener('resize', update);
-    update();
-  })();
-
-  (() => {
-    const wrapper = document.getElementById("playerWrapper");
-    const slides = Array.from(document.querySelectorAll(".player-slide"));
-    const next = document.getElementById("playerNext");
-    const prev = document.getElementById("playerPrev");
-
-    let index = 0;
-
-    function scrollToIndex() {
-      const width = wrapper.clientWidth;
-      wrapper.scrollTo({
-        left: index * width,
-        behavior: "smooth",
-      });
-    }
-
-    next?.addEventListener("click", () => {
-      index = Math.min(index + 1, slides.length - 1);
-      scrollToIndex();
-    });
-
-    prev?.addEventListener("click", () => {
-      index = Math.max(index - 1, 0);
-      scrollToIndex();
-    });
-
-    wrapper.addEventListener("scroll", () => {
-      index = Math.round(wrapper.scrollLeft / wrapper.clientWidth);
-    });
-  })();
-</script>

@@ -11,17 +11,46 @@ import Header from "../components/Header.astro";
     <meta name="generator" content={Astro.generator} />
     <title>The Clubhouse</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet" />
   </head>
 
   <body>
+    <div id="preloader">
+      <div class="preloader-content">
+        <img src="/timeglas.gif" alt="Loading Simgames" class="preloader-gif" />
+        <p class="preloader-text">Loading Simgames...</p>
+      </div>
+    </div>
+
     <Header />
     <slot />
+
+    <script>
+      // Hvis brugeren allerede har været på siden i denne session → skip preloader
+      if (sessionStorage.getItem("simgamesLoaded")) {
+        const preloader = document.getElementById("preloader");
+        if (preloader) preloader.style.display = "none";
+      }
+
+      window.addEventListener("load", () => {
+        // Markér siden som loaded for denne session
+        sessionStorage.setItem("simgamesLoaded", "true");
+
+        const preloader = document.getElementById("preloader");
+        if (!preloader) return;
+
+        preloader.classList.add("hidden");
+
+        // Fjern helt efter fade-out
+        setTimeout(() => {
+          if (preloader && preloader.parentNode) {
+            preloader.parentNode.removeChild(preloader);
+          }
+        }, 600);
+      });
+    </script>
   </body>
 </html>
 
@@ -30,8 +59,8 @@ import Header from "../components/Header.astro";
      LOCAL FONT: PIXELIFY SANS (MEDIUM)
      ========================= */
   @font-face {
-    font-family: 'PixelifySans';
-    src: url('/fonts/PixelifySans-Medium.ttf') format('truetype');
+    font-family: "PixelifySans";
+    src: url("/fonts/PixelifySans-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -47,7 +76,7 @@ import Header from "../components/Header.astro";
     height: 100%;
     background: url("/baggrund.gif") center / cover no-repeat fixed;
     color: #fff;
-    font-family: 'Aldrich', sans-serif;
+    font-family: "Aldrich", sans-serif;
   }
 
   /* =========================
@@ -56,7 +85,7 @@ import Header from "../components/Header.astro";
 
   /* ALL H1 */
   h1 {
-    font-family: 'PixelifySans', monospace;
+    font-family: "PixelifySans", monospace;
     font-weight: 500;
     letter-spacing: 2px;
   }
@@ -67,6 +96,50 @@ import Header from "../components/Header.astro";
   p,
   ul,
   li {
-    font-family: 'Aldrich', sans-serif;
+    font-family: "Aldrich", sans-serif;
+  }
+
+  /* =========================
+     PRELOADER
+     ========================= */
+  #preloader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    font-family: "PixelifySans", monospace;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  .preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .preloader-gif {
+    width: 120px;
+    height: auto;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 8px #e803b2) drop-shadow(0 0 16px #e803b2);
+  }
+
+  .preloader-text {
+    font-size: 1.25rem;
+    text-shadow:
+      0 0 6px #e803b2,
+      0 0 12px #e803b2;
+  }
+
+  #preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
   }
 </style>

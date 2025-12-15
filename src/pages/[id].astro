@@ -151,6 +151,35 @@ if (firstDotIndex !== -1) {
       box-shadow: 0 0 26px rgba(0, 234, 255, 0.55);
     }
 
+    .book-btn {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 1.75rem;
+    }
+
+    .book-btn img {
+      width: 180px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.25s ease;
+      image-rendering: pixelated;
+    }
+
+    .book-btn img:hover {
+      content: url("/bookhover.png");
+      transform: scale(1.02);
+    }
+
+    .book-btn {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .book-btn img {
+      width: 150px;
+    }
+
     @media (max-width: 820px) {
       main {
         padding-top: 6.5rem;
@@ -213,8 +242,8 @@ if (firstDotIndex !== -1) {
       )
     }
 
-    <div class="cta-row">
-      <a href="#book" class="btn primary">Book en tid</a>
+    <div class="book-btn">
+      <a href="https://www.simgolf.dk/booking" target="_blank" rel="noreferrer"><img src="/public/book.png" alt="Book knap" /></a>
     </div>
   </main>
 </Layout>
