@@ -20,6 +20,11 @@ const games: Game[] = Array.isArray(data) ? data : [];
 ---
 
 <Layout>
+  <div class="cloud-layer">
+    <img src="/sky.png" class="cloud cloud-1" alt="" aria-hidden="true" />
+    <img src="/sky.png" class="cloud cloud-2" alt="" aria-hidden="true" />
+    <img src="/sky.png" class="cloud cloud-3" alt="" aria-hidden="true" />
+  </div>
   <style>
     :root {
       --accent: #00eaff;
@@ -31,6 +36,8 @@ const games: Game[] = Array.isArray(data) ? data : [];
       padding-top: 12rem;
       padding-bottom: 5rem;
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
     p {
@@ -108,6 +115,8 @@ const games: Game[] = Array.isArray(data) ? data : [];
       max-width: 900px;
       margin: 0 auto 23.5rem;
       padding: 20px 40px;
+      position: relative;
+      z-index: 2;
     }
 
     .carousel-window {
@@ -149,6 +158,8 @@ const games: Game[] = Array.isArray(data) ? data : [];
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
       line-height: 1.6;
+      position: relative;
+      z-index: 2;
     }
 
     .arrow-wrap {
@@ -207,6 +218,7 @@ const games: Game[] = Array.isArray(data) ? data : [];
       align-items: center;
       position: relative;
       text-align: left;
+      z-index: 2;
     }
 
     .player-arrow-row {
@@ -426,6 +438,43 @@ const games: Game[] = Array.isArray(data) ? data : [];
       height: 80px;
       background: url("/footer.png");
       background-size: cover;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cloud-layer {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 80px);
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .cloud {
+      position: absolute;
+      width: 360px;
+      opacity: 0.18;
+      transition: transform 0.1s linear;
+    }
+
+    .cloud-1 {
+      top: 4%;
+      left: -6%;
+    }
+
+    .cloud-2 {
+      top: 14%;
+      right: -8%;
+      width: 420px;
+    }
+
+    .cloud-3 {
+      top: 26%;
+      left: 12%;
+      width: 300px;
     }
 
     @media (max-width: 820px) {
@@ -537,6 +586,9 @@ const games: Game[] = Array.isArray(data) ? data : [];
         gap: 13rem;
         margin-top: -40px;
         padding-bottom: 0.5rem;
+      }
+      .cloud {
+        width: 220px;
       }
     }
   </style>
@@ -829,6 +881,22 @@ const games: Game[] = Array.isArray(data) ? data : [];
       window.addEventListener("resize", update);
 
       update();
+    })();
+    (function () {
+      const clouds = document.querySelectorAll(".cloud");
+      if (!clouds.length) return;
+
+      const maxMove = window.innerWidth + 600;
+
+      window.addEventListener("scroll", () => {
+        const progress = Math.min(window.scrollY / 600, 1);
+
+        clouds.forEach((cloud, i) => {
+          const direction = i % 2 === 0 ? -1 : 1;
+          const offset = progress * maxMove;
+          cloud.style.transform = `translateX(${direction * offset}px)`;
+        });
+      });
     })();
   </script>
 </Layout>
