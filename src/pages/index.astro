@@ -477,120 +477,156 @@ const games: Game[] = Array.isArray(data) ? data : [];
       width: 300px;
     }
 
-    @media (max-width: 820px) {
-      .hero {
-        padding: 7rem 1rem 3rem;
-      }
+   /* 
+  MOBILE FIX
+  Rydder op i overflow, sliders og spacing.
+  Fokus: det skal bare virke – ingen fancy hacks.
+*/
+@media (max-width: 820px) {
 
-      .hero-text h1 {
-        font-size: 2rem;
-        letter-spacing: 1px;
-      }
+/* ========== HERO ========== */
+/* Mindre padding så hero ikke fylder hele skærmen */
+.hero {
+  padding: 6rem 1rem 3rem;
+}
 
-      .hero-text h2 {
-        font-size: 1rem;
-      }
+/* Skaler tekst ned – intet behov for desktop-størrelser */
+.hero-text h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
 
-      .hero-gif {
-        max-height: 220px;
-      }
+.hero-text h2 {
+  font-size: 1rem;
+}
 
-      .section-title {
-        margin-top: 3rem;
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-      }
+/* Video må ikke dominere viewport */
+.hero-gif {
+  max-height: 220px;
+}
 
-      .section-title-two {
-        margin-top: -250px;
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-        text-align: center;
-      }
+/* ========== SECTION TITLES ========== */
+.section-title {
+  margin-top: 3rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
 
-      .concept-section {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 1rem;
-      }
+/* Fjern aggressive negative margins – de ødelægger mobil */
+.section-title-two {
+  margin-top: 2.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
 
-      .concept-right {
-        align-items: center;
-      }
+/* ========== KONCEPT ========== */
+/* Stack content – ingen grund til columns på mobil */
+.concept-section {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
 
-      .koncept-btn {
-        align-self: center;
-        margin-right: 0;
-      }
+.concept-right {
+  align-items: center;
+}
 
-      .koncept-btn img {
-        width: 140px;
-      }
+.koncept-btn {
+  align-self: center;
+  margin-right: 0;
+}
 
-      .carousel-window {
-        max-width: 400px;
-        margin: 0 auto;
-      }
+.koncept-btn img {
+  width: 140px;
+}
 
-      .card {
-        width: 120px;
-        height: 160px;
-      }
+/* ========== GAMES / CAROUSEL ========== */
+/* Lås visningen til 2 cards – resten skjules */
+.carousel-window {
+  max-width: 260px; /* 2 × 120px + gap */
+  margin: 0 auto;
+  overflow: hidden;
+}
 
-      .arrow-btn img {
-        width: 56px;
-        height: 56px;
-      }
+/* Cards skal være mindre på mobil */
+.card {
+  width: 120px;
+  height: 160px;
+}
 
-      .player-carousel {
-        grid-template-columns: 1fr;
-        padding: 1.5rem 1.25rem;
-        gap: 1rem;
-        margin-left: 2.5rem;
-        margin-right: 2.5rem;
-        box-sizing: border-box;
-      }
+.carousel-track {
+  gap: 20px;
+}
 
-      .player-slide {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-        padding: 0.75rem;
-      }
+.arrow-btn img {
+  width: 56px;
+  height: 56px;
+}
 
-      .player-card-img {
-        height: 220px;
-      }
+/* ========== PICK PLAYER ========== */
+/* Fjern side-margins – de skubber indhold ud af viewport */
+.player-carousel {
+  width: 100%;
+  margin: 3rem 0 6rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
 
-      .player-card-text h3 {
-        font-size: 1.4rem;
-        text-align: center;
-      }
+/* Stop horizontal scroll – vi styrer slideren selv */
+.player-slide-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
 
-      .player-card-text ul {
-        font-size: 0.95rem;
-        text-align: center;
-      }
+/* Slides må aldrig være bredere end viewport */
+.player-slide {
+  width: 100%;
+  flex: 0 0 100%;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 0.75rem;
+  box-sizing: border-box;
+}
 
-      .book-btn {
-        justify-content: center;
-      }
+.player-card-img {
+  height: 200px;
+}
 
-      .book-btn img {
-        width: 150px;
-      }
+.player-card-text h3 {
+  font-size: 1.4rem;
+  text-align: center;
+}
 
-      .player-arrow-row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 13rem;
-        margin-top: -40px;
-        padding-bottom: 0.5rem;
-      }
-      .cloud {
-        width: 220px;
-      }
-    }
+.player-card-text ul {
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.book-btn {
+  justify-content: center;
+}
+
+.book-btn img {
+  width: 150px;
+}
+
+/* Pile skal være tæt på hinanden – ikke ude i siden */
+.player-arrow-row {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 1rem;
+}
+
+/* ========== BACKGROUND CLOUDS ========== */
+/* Mindre clouds så de ikke stjæler fokus */
+.cloud {
+  width: 220px;
+}
+}
+
   </style>
 
   <section class="hero reveal">
