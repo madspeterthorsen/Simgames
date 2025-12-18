@@ -36,28 +36,32 @@ import Header from "../components/Header.astro";
     <slot />
 
     <script>
-      // Hvis brugeren allerede har været på siden i denne session → skip preloader
-      if (sessionStorage.getItem("simgamesLoaded")) {
-        const preloader = document.getElementById("preloader");
-        if (preloader) preloader.style.display = "none";
-      }
-
-      window.addEventListener("load", () => {
-        // Markér siden som loaded for denne session
-        sessionStorage.setItem("simgamesLoaded", "true");
-
-        const preloader = document.getElementById("preloader");
+      const MIN_TIME = 500;   // ms – så den ikke blinker
+      const MAX_TIME = 1800;  // ms – absolut max
+    
+      const start = performance.now();
+      const preloader = document.getElementById("preloader");
+    
+      function hidePreloader() {
         if (!preloader) return;
-
+    
         preloader.classList.add("hidden");
-
-        // Fjern helt efter fade-out
+    
         setTimeout(() => {
-          if (preloader && preloader.parentNode) {
-            preloader.parentNode.removeChild(preloader);
-          }
-        }, 600);
+          preloader.remove();
+        }, 500);
+      }
+    
+      // 1️⃣ Når DOM er klar (hurtig)
+      document.addEventListener("DOMContentLoaded", () => {
+        const elapsed = performance.now() - start;
+        const remaining = Math.max(MIN_TIME - elapsed, 0);
+    
+        setTimeout(hidePreloader, remaining);
       });
+    
+      // 2️⃣ Fallback – hvis noget går galt
+      setTimeout(hidePreloader, MAX_TIME);
 
       // Global scroll-reveal effekt (ligesom i Toki-projektet)
       document.addEventListener("DOMContentLoaded", () => {
