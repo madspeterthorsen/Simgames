@@ -105,18 +105,26 @@ import Footer from "../components/Footer.astro";
 
   html,
   body {
-    margin: 0;
-    width: 100%;
-    min-height: 100%;
-    background: url("/baggrund.gif") center / cover no-repeat fixed;
-    color: #fff;
-    font-family: "Aldrich", sans-serif;
-  }
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  background: url("/baggrund.gif") center / cover no-repeat fixed;
+  color: #fff;
+  font-family: "Aldrich", sans-serif;
+}
 
-  .page-wrapper {
-    min-height: calc(100vh - 80px);
-    display: block;
-  }
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer {
+  min-height: 80px;
+}
+
+.page-wrapper {
+  flex: 1;
+}
 
   h1 {
     font-family: "PixelifySans", monospace;
@@ -167,4 +175,5 @@ import Footer from "../components/Footer.astro";
     opacity: 1;
     transform: translateY(0);
   }
+
 </style>
