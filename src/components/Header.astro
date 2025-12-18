@@ -178,6 +178,7 @@ import Logo from "../assets/logo.png";
       transform 0.25s ease;
     font-family: "ArcadeClassic";
     z-index: 1200;
+    
   }
 
   .menu-row {
@@ -382,8 +383,18 @@ import Logo from "../assets/logo.png";
     .menu-panel {
       align-items: flex-start;
       padding-right: 3rem;
-    }
+    }ç
   }
+
+  /* FORCE ArcadeClassic i menu – Astro + Netlify fix */
+:global(.menu-panel),
+:global(.menu-panel a),
+:global(.menu-panel a:visited),
+:global(.menu-panel a:hover),
+:global(.menu-panel a:active) {
+  font-family: "ArcadeClassic", monospace !important;
+  letter-spacing: 2px;
+}
 </style>
 
 <script>
