@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -83,8 +84,12 @@ import Header from "../components/Header.astro";
         revealEls.forEach((el) => observer.observe(el));
       });
     </script>
+
+    <Footer/> 
+
   </body>
 </html>
+
 
 <style is:global>
   /* =========================
