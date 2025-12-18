@@ -1,14 +1,18 @@
-<footer class="site-footer"></footer>
+<footer class="site-footer">
+  <span class="footer-spacer"></span>
+</footer>
 
 <style>
 .site-footer {
-  margin-top: 2rem;
+  width: 100%;
   height: 80px;
+  background: url("/footer.webp") center bottom / cover no-repeat;
+  position: relative;
+  z-index: 5;
+}
 
-  background-image: url("/footer.webp");
-  background-repeat: no-repeat;
-
-  background-position: 60% 85%;
-  background-size: cover;
+.footer-spacer {
+  display: block;
+  height: 1px;
 }
 </style>
