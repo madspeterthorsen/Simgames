@@ -7,7 +7,7 @@ import Footer from "../components/Footer.astro";
 <html lang="da">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>The Clubhouse</title>
@@ -26,26 +26,61 @@ import Footer from "../components/Footer.astro";
   </head>
 
   <body>
-    <!-- simpel preloader, bare så siden ikke blinker -->
+    <!-- Loader mens siden samler sig -->
     <div id="preloader">
-      <img src="/timeglas.gif" alt="Loading" />
+      <div class="preloader-content">
+        <img src="/timeglas.gif" alt="Loading Simgames" class="preloader-gif" />
+        <p class="preloader-text">Loading Simgames...</p>
+      </div>
     </div>
 
     <Header />
 
-    <!-- alt indhold lever her, så footeren altid havner nederst -->
-    <main class="site-main">
+    <!-- Alt page-content lever her -->
+    <main class="page-wrapper">
       <slot />
     </main>
 
     <Footer />
 
     <script>
+      const MIN_TIME = 1500;
+      const MAX_TIME = 2000;
+
+      const start = performance.now();
       const preloader = document.getElementById("preloader");
-      window.addEventListener("load", () => {
+
+      function hidePreloader() {
         if (!preloader) return;
         preloader.classList.add("hidden");
         setTimeout(() => preloader.remove(), 500);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const elapsed = performance.now() - start;
+        setTimeout(hidePreloader, Math.max(MIN_TIME - elapsed, 0));
+      });
+
+      setTimeout(hidePreloader, MAX_TIME);
+
+      // Scroll reveal – same vibe som resten af sitet
+      document.addEventListener("DOMContentLoaded", () => {
+        const revealEls = document.querySelectorAll(".reveal");
+        if (!revealEls.length) return;
+
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+
+        revealEls.forEach((el) => observer.observe(el));
       });
     </script>
   </body>
@@ -54,27 +89,33 @@ import Footer from "../components/Footer.astro";
 <style is:global>
   @font-face {
     font-family: "ArcadeClassic";
-    src: url("/fonts/ARCADECLASSIC2.woff2") format("woff2");
+    src:
+      url("/fonts/ARCADECLASSIC2.woff2") format("woff2"),
+      url("/fonts/ARCADECLASSIC2.woff") format("woff"),
+      url("/fonts/ARCADECLASSIC2.ttf") format("truetype");
     font-display: swap;
   }
 
-  html, body {
-    margin: 0;
-    padding: 0;
+  @font-face {
+    font-family: "PixelifySans";
+    src: url("/fonts/PixelifySans-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
   }
 
+  html,
   body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
     background: url("/baggrund.gif") center / cover no-repeat fixed;
     color: #fff;
     font-family: "Aldrich", sans-serif;
   }
 
-  .site-main {
-    flex: 1;
-    width: 100%;
+  .page-wrapper {
+    min-height: calc(100vh - 80px);
+    display: block;
   }
 
   h1 {
@@ -87,14 +128,43 @@ import Footer from "../components/Footer.astro";
     inset: 0;
     background: #000;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     z-index: 9999;
-    transition: opacity 0.4s ease;
+  }
+
+  .preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .preloader-gif {
+    width: 120px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 8px #e803b2) drop-shadow(0 0 16px #e803b2);
+  }
+
+  .preloader-text {
+    font-size: 1.25rem;
+    text-shadow: 0 0 12px #e803b2;
   }
 
   #preloader.hidden {
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
   }
 </style>
