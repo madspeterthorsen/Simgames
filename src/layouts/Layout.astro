@@ -15,17 +15,18 @@ import Footer from "../components/Footer.astro";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet" />
-    <link
-  rel="preload"
-  href="/fonts/ARCADECLASSIC2.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
 
+    <link
+      rel="preload"
+      href="/fonts/ARCADECLASSIC2.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
   </head>
 
   <body>
+    <!-- Loader mens siden samler sig -->
     <div id="preloader">
       <div class="preloader-content">
         <img src="/timeglas.gif" alt="Loading Simgames" class="preloader-gif" />
@@ -34,37 +35,35 @@ import Footer from "../components/Footer.astro";
     </div>
 
     <Header />
-    <slot />
+
+    <!-- Alt page-content lever her -->
+    <main class="page-wrapper">
+      <slot />
+    </main>
+
+    <Footer />
 
     <script>
-      const MIN_TIME = 1500;   // ms – så den ikke blinker
-      const MAX_TIME = 2000;  // ms – absolut max
-    
+      const MIN_TIME = 1500;
+      const MAX_TIME = 2000;
+
       const start = performance.now();
       const preloader = document.getElementById("preloader");
-    
+
       function hidePreloader() {
         if (!preloader) return;
-    
         preloader.classList.add("hidden");
-    
-        setTimeout(() => {
-          preloader.remove();
-        }, 500);
+        setTimeout(() => preloader.remove(), 500);
       }
-    
-      // 1️⃣ Når DOM er klar (hurtig)
+
       document.addEventListener("DOMContentLoaded", () => {
         const elapsed = performance.now() - start;
-        const remaining = Math.max(MIN_TIME - elapsed, 0);
-    
-        setTimeout(hidePreloader, remaining);
+        setTimeout(hidePreloader, Math.max(MIN_TIME - elapsed, 0));
       });
-    
-      // 2️⃣ Fallback – hvis noget går galt
+
       setTimeout(hidePreloader, MAX_TIME);
 
-      // Global scroll-reveal effekt (ligesom i Toki-projektet)
+      // Scroll reveal – same vibe som resten af sitet
       document.addEventListener("DOMContentLoaded", () => {
         const revealEls = document.querySelectorAll(".reveal");
         if (!revealEls.length) return;
@@ -84,75 +83,46 @@ import Footer from "../components/Footer.astro";
         revealEls.forEach((el) => observer.observe(el));
       });
     </script>
-
-    <Footer/> 
-
   </body>
 </html>
 
-
 <style is:global>
-  /* =========================
-     LOCAL FONT: PIXELIFY SANS (MEDIUM)
-     ========================= */
-
-
-
-     @font-face {
-  font-family: "ArcadeClassic";
-  src:
-    url("/fonts/ARCADECLASSIC2.woff2") format("woff2"),
-    url("/fonts/ARCADECLASSIC2.woff") format("woff"),
-    url("/fonts/ARCADECLASSIC2.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+  @font-face {
+    font-family: "ArcadeClassic";
+    src:
+      url("/fonts/ARCADECLASSIC2.woff2") format("woff2"),
+      url("/fonts/ARCADECLASSIC2.woff") format("woff"),
+      url("/fonts/ARCADECLASSIC2.ttf") format("truetype");
+    font-display: swap;
+  }
 
   @font-face {
     font-family: "PixelifySans";
     src: url("/fonts/PixelifySans-Medium.ttf") format("truetype");
     font-weight: 500;
-    font-style: normal;
     font-display: swap;
   }
 
-  /* =========================
-     GLOBAL STYLES
-     ========================= */
   html,
   body {
     margin: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background: url("/baggrund.gif") center / cover no-repeat fixed;
     color: #fff;
     font-family: "Aldrich", sans-serif;
   }
 
-  /* =========================
-     TYPOGRAPHY
-     ========================= */
+  .page-wrapper {
+    min-height: calc(100vh - 80px);
+    display: block;
+  }
 
-  /* ALL H1 */
   h1 {
     font-family: "PixelifySans", monospace;
-    font-weight: 500;
     letter-spacing: 2px;
   }
 
-  /* ALL OTHER TEXT */
-  h2,
-  h3,
-  p,
-  ul,
-  li {
-    font-family: "Aldrich", sans-serif;
-  }
-
-  /* =========================
-     PRELOADER
-     ========================= */
   #preloader {
     position: fixed;
     inset: 0;
@@ -161,10 +131,6 @@ import Footer from "../components/Footer.astro";
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    font-family: "PixelifySans", monospace;
-    font-size: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
   }
 
   .preloader-content {
@@ -176,16 +142,13 @@ import Footer from "../components/Footer.astro";
 
   .preloader-gif {
     width: 120px;
-    height: auto;
     image-rendering: pixelated;
     filter: drop-shadow(0 0 8px #e803b2) drop-shadow(0 0 16px #e803b2);
   }
 
   .preloader-text {
     font-size: 1.25rem;
-    text-shadow:
-      0 0 6px #e803b2,
-      0 0 12px #e803b2;
+    text-shadow: 0 0 12px #e803b2;
   }
 
   #preloader.hidden {
@@ -194,15 +157,10 @@ import Footer from "../components/Footer.astro";
     transition: opacity 0.5s ease;
   }
 
-  /* =========================
-     REVEAL-ON-SCROLL (GLOBAL)
-     ========================= */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition:
-      opacity 0.6s ease-out,
-      transform 0.6s ease-out;
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
   .reveal.in-view {
