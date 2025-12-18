@@ -36,8 +36,8 @@ import Header from "../components/Header.astro";
     <slot />
 
     <script>
-      const MIN_TIME = 500;   // ms – så den ikke blinker
-      const MAX_TIME = 1800;  // ms – absolut max
+      const MIN_TIME = 1500;   // ms – så den ikke blinker
+      const MAX_TIME = 2000;  // ms – absolut max
     
       const start = performance.now();
       const preloader = document.getElementById("preloader");

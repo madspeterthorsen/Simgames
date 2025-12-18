@@ -276,6 +276,18 @@ import Logo from "../assets/logo.png";
       padding: 0.75rem 1rem;
     }
 
+    @media (max-width: 768px) {
+  :global(.menu-panel),
+  :global(.menu-panel a),
+  :global(.menu-panel a:visited),
+  :global(.menu-panel a:hover),
+  :global(.menu-panel a:active) {
+    font-family: "Aldrich", system-ui, sans-serif;
+    letter-spacing: 1px;
+  }
+}
+
+
     .logo {
       width: 56px;
       top: 1rem;
@@ -386,15 +398,6 @@ import Logo from "../assets/logo.png";
     }ç
   }
 
-  /* FORCE ArcadeClassic i menu – Astro + Netlify fix */
-:global(.menu-panel),
-:global(.menu-panel a),
-:global(.menu-panel a:visited),
-:global(.menu-panel a:hover),
-:global(.menu-panel a:active) {
-  font-family: "ArcadeClassic", monospace !important;
-  letter-spacing: 2px;
-}
 </style>
 
 <script>

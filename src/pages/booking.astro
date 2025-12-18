@@ -121,19 +121,36 @@ import Layout from "../layouts/Layout.astro";
       margin-top: 2rem;
     }
 
-    .book-btn img {
-      width: 180px;
-      height: auto;
-      cursor: pointer;
-      transition:
-        transform 0.25s ease,
-        filter 0.25s ease;
-      image-rendering: pixelated;
-    }
+    .book-btn {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1.75rem;
+}
 
-    .book-btn img:hover {
-      content: url("/bookhover.png");
-    }
+.book-btn img {
+  width: 180px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  image-rendering: pixelated;
+}
+
+.book-btn img:hover {
+  content: url("/bookhover.webp");
+  transform: scale(1.02);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .book-btn {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .book-btn img {
+    width: 150px;
+  }
+}
 
     .footer {
       margin-top: 4rem;

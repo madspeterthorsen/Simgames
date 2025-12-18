@@ -327,18 +327,45 @@ const games: Game[] = Array.isArray(data) ? data : [];
       margin-top: 0.4rem;
     }
 
-    .book-btn img {
-      width: 180px;
-      height: auto;
-      cursor: pointer;
-      transition: transform 0.15s ease;
-      image-rendering: pixelated;
-    }
+    .book-btn {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1.75rem;
+}
 
-    .book-btn img:hover {
-      content: url("/bookhover.png");
-      transform: scale(1.05);
-    }
+.book-link {
+  position: relative;
+  display: inline-block;
+}
+
+.book-base,
+.book-hover {
+  width: 180px;
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.book-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.book-link:hover .book-hover {
+  opacity: 1;
+}
+
+.book-link:hover .book-base {
+  opacity: 0;
+}
+
+.book-link:hover img {
+  transform: scale(1.02);
+}
+
 
     .concept-right {
       display: flex;
@@ -417,7 +444,7 @@ const games: Game[] = Array.isArray(data) ? data : [];
     }
 
     .koncept-btn img:hover {
-      content: url("/koncepthover.png");
+      content: url("/koncepthover.webp");
       transform: scale(1.05);
     }
 
@@ -703,8 +730,12 @@ const games: Game[] = Array.isArray(data) ? data : [];
               <li>Har ét godt slag per aften</li>
             </ul>
             <div class="book-btn">
-              <a href="/booking"> <img src="/book.webp" alt="Book Now" /> </a>
+              <a href="/booking" class="book-link">
+                <img src="/book.webp" alt="Book Now" class="book-base" />
+                <img src="/bookhover.webp" alt="" class="book-hover" />
+              </a>
             </div>
+            
           </div>
         </div>
 
@@ -721,7 +752,10 @@ const games: Game[] = Array.isArray(data) ? data : [];
               <li>“Et slag mere – for hyggen!”</li>
             </ul>
             <div class="book-btn">
-              <a href="/booking"> <img src="/book.webp" alt="Book Now" /> </a>
+              <a href="/booking" class="book-link">
+                <img src="/book.webp" alt="Book Now" class="book-base" />
+                <img src="/bookhover.webp" alt="" class="book-hover" />
+              </a>
             </div>
           </div>
         </div>
@@ -738,8 +772,11 @@ const games: Game[] = Array.isArray(data) ? data : [];
               <li>Analyserer hvert slag</li><br />
               <li>Stille hvis du slår længere</li>
             </ul>
-            <div class="book-btn">
-              <a href="/booking"> <img src="/book.webp" alt="Book Now" /> </a>
+           <div class="book-btn">
+              <a href="/booking" class="book-link">
+                <img src="/book.webp" alt="Book Now" class="book-base" />
+                <img src="/bookhover.webp" alt="" class="book-hover" />
+              </a>
             </div>
           </div>
         </div>
@@ -757,7 +794,10 @@ const games: Game[] = Array.isArray(data) ? data : [];
               <li>Har uheld i verdensklasse</li>
             </ul>
             <div class="book-btn">
-              <a href="/booking"> <img src="/book.webp" alt="Book Now" /> </a>
+              <a href="/booking" class="book-link">
+                <img src="/book.webp" alt="Book Now" class="book-base" />
+                <img src="/bookhover.webp" alt="" class="book-hover" />
+              </a>
             </div>
           </div>
         </div>
@@ -775,7 +815,10 @@ const games: Game[] = Array.isArray(data) ? data : [];
               <li>Bedste slag – ved et uheld</li><br />
             </ul>
             <div class="book-btn">
-              <a href="/booking"> <img src="/book.webp" alt="Book Now" /> </a>
+              <a href="/booking" class="book-link">
+                <img src="/book.webp" alt="Book Now" class="book-base" />
+                <img src="/bookhover.webp" alt="" class="book-hover" />
+              </a>
             </div>
           </div>
         </div>
@@ -793,7 +836,10 @@ const games: Game[] = Array.isArray(data) ? data : [];
               <li>Vinder uden at prøve</li>
             </ul>
             <div class="book-btn">
-              <a href="/booking"> <img src="/book.webp" alt="Book Now" /> </a>
+              <a href="/booking" class="book-link">
+                <img src="/book.webp" alt="Book Now" class="book-base" />
+                <img src="/bookhover.webp" alt="" class="book-hover" />
+              </a>
             </div>
           </div>
         </div>
